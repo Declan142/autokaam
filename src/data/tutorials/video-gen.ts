@@ -4,10 +4,10 @@ import { IMG } from "../news/images";
 export const videoGen: Tutorial[] = [
   {
     slug: "youtube-shorts-runway-suno-hindi",
-    title: "AI Se YouTube Shorts Banao — Runway ML + Suno Music (Hindi Channel)",
-    subtitle: "End-to-end workflow: script se video, original soundtrack tak — Rs 2,500/month budget mein",
-    excerpt: "Indian YouTubers ke liye complete AI shorts production pipeline. Runway ML se video, Suno AI se royalty-free Hindi music, CapCut se edit. Channel growth tactics included.",
-    body: `YouTube Shorts abhi ka sabse fast-growing content format hai aur AI tools se production cost 80-90% drop ho gaya hai. Ye tutorial ek Indian content creator ke liye end-to-end workflow deta hai — agar tumhara khud ka camera setup nahi hai bhi.
+    title: "Building YouTube Shorts With Runway ML and Suno — End-to-End For Indian Channels",
+    subtitle: "Script to published short, with original soundtrack — all on a Rs 2,500/month budget",
+    excerpt: "A complete AI-powered Shorts production pipeline for Indian creators. Runway ML for video, Suno AI for royalty-free music, CapCut for edits. Channel growth tactics included.",
+    body: `YouTube Shorts is currently the fastest-growing content format, and AI tools have dropped production cost 80-90%. This tutorial gives an Indian content creator an end-to-end workflow — even if you don't have your own camera setup.
 
 ## Tech Stack (Monthly Budget)
 
@@ -16,34 +16,34 @@ export const videoGen: Tutorial[] = [
 | ChatGPT Go | Script writing | Rs 0 (till Dec 2026) |
 | Runway ML | Video generation | Rs 1,250/mo (Standard) |
 | Suno AI | Music | Rs 830/mo (Pro) |
-| CapCut | Edit | Rs 0 (free tier) |
-| Thumbnail | Canva Pro | Rs 420/mo |
+| CapCut | Editing | Rs 0 (free tier) |
+| Thumbnails | Canva Pro | Rs 420/mo |
 | **Total** | | **~Rs 2,500/mo** |
 
-30-60 shorts/month easily produce ho sakte hain is budget mein.
+You can comfortably produce 30-60 Shorts a month on this budget.
 
-## Step 1 — Script with ChatGPT
+## Step 1 — Script With ChatGPT
 
-Shorts ka script 15-30 second hook hai + 30-60 second payoff. Template:
+A Short is a 15-30 second hook + 30-60 second payoff. Template:
 
 \`\`\`
-Write a 45-second YouTube Shorts script in Hinglish about [TOPIC].
+Write a 45-second YouTube Shorts script about [TOPIC].
 
 Structure:
-- Hook (first 3 seconds): surprising fact or question
+- Hook (first 3 seconds): a surprising fact or question
 - Body (15 sec): main content, 3 key points
-- CTA (last 5 sec): "Follow karo" ya specific action
+- CTA (last 5 sec): specific action ("Subscribe," "Follow for part 2")
 
-Audience: 18-28 year old Indians, mobile-first viewers
+Audience: Indian viewers aged 18-28, mobile-first
 Tone: conversational, high energy
 Include: 2-3 visual cues describing what to show
 \`\`\`
 
-Iterate 2-3 times. Final script lock karo before production.
+Iterate two or three times. Lock the final script before moving to production.
 
 ## Step 2 — Storyboard (Quick Sketch)
 
-Shorts ke liye 5-8 shots kaafi hote hain. Script se visual cues extract:
+Shorts usually need 5-8 shots. Extract visual cues from the script:
 
 \`\`\`
 Shot 1 (0-3s): Close-up of Indian street food vendor
@@ -54,7 +54,7 @@ Shot 3 (8-15s): Macro shot of chai pouring
 
 ## Step 3 — Video Generation (Runway ML Gen-4)
 
-Runway Gen-4 shortlength video generation ke liye best hai abhi. 10-second clips max (V4 limit).
+Runway Gen-4 is currently the best option for short-form clips. 10-second clips maximum (V4 limit).
 
 Prompt structure:
 
@@ -66,7 +66,7 @@ Prompt structure:
 [MOOD/STYLE]
 
 Example:
-35mm macro close-up of hot chai being poured into glass tumbler,
+35mm macro close-up of hot chai being poured into a glass tumbler,
 Indian street tea stall at dusk,
 warm golden hour lighting with steam visible,
 slow downward tilt,
@@ -74,101 +74,101 @@ documentary style, nostalgic mood
 \`\`\`
 
 Key prompting principles:
-- **Camera specificity**: "35mm," "wide," "drone shot" — shot type matter karta hai
-- **Lighting mandatory**: "golden hour," "overhead fluorescent," "neon night" — ambient define karo
-- **Motion explicit**: "slow pan left," "handheld shaky," "smooth dolly"
-- **Avoid text in video**: Runway text mein still weak, title CapCut mein add karo
+- **Camera specificity**: "35mm," "wide," "drone shot" — shot type matters
+- **Lighting is mandatory**: "golden hour," "overhead fluorescent," "neon night" — define the ambient lighting
+- **Explicit motion**: "slow pan left," "handheld shaky," "smooth dolly"
+- **Avoid text in video**: Runway is weak at text — add titles in CapCut
 
 ### Alternatives
-- **Pika**: faster, cheaper (~Rs 830/mo); stylized animation better
-- **Sora** (OpenAI): recently API mein available, premium quality but expensive
-- **Luma Dream Machine**: free tier generous
+- **Pika**: faster, cheaper (~Rs 830/mo); stylised animation is better
+- **Sora** (OpenAI): API access now available; premium quality but expensive
+- **Luma Dream Machine**: generous free tier
 
-## Step 4 — Music with Suno AI
+## Step 4 — Music With Suno AI
 
-Suno Hindi lyrics aur original music dono generate kar sakta hai.
+Suno can generate original music in Hindi, English, or a mix.
 
-### Prompt for Background Score
+### Prompt For A Background Score
 
 \`\`\`
 [Instrumental, no lyrics]
 Upbeat Bollywood-influenced background music,
 tabla and synth fusion, 120 BPM,
-energetic for YouTube Shorts intro,
+energetic for a YouTube Shorts intro,
 30 seconds length
 \`\`\`
 
-### Prompt for Vocal Track
+### Prompt For A Vocal Track
 
 \`\`\`
 [Style: Hindi indie pop]
 Lyrics in Hindi about [topic]:
 [paste 4-line hook]
 
-Vocal: young male, indie soft tone
+Vocals: young male, soft indie tone
 Instruments: acoustic guitar, light percussion, subtle strings
 Mood: hopeful, modern
 Length: 1 minute
 \`\`\`
 
-Suno generates 2 versions per prompt. Download best one.
+Suno generates two versions per prompt. Download the best one.
 
-**License**: Suno Pro license commercial use allow karta hai. Free tier NOT for commercial.
+**License note**: Suno Pro allows commercial use. The free tier does not.
 
-## Step 5 — Edit in CapCut
+## Step 5 — Edit In CapCut
 
-CapCut free tier bilkul enough hai Shorts ke liye:
+CapCut's free tier is plenty for Shorts:
 
-1. Import all Runway clips (vertical 9:16 format crop karo)
-2. Add Suno music as background
-3. Voiceover: ElevenLabs (free tier) ya apni awaaz
-4. Captions: CapCut auto-caption Hindi support karta hai (Indian language update)
-5. Transitions: minimal — 2-3 types max
-6. Color grade: ek LUT apply karo consistent look ke liye
+1. Import all Runway clips (crop to vertical 9:16)
+2. Add the Suno music as background
+3. Voiceover via ElevenLabs (free tier) or your own voice
+4. Captions — CapCut auto-captions Hindi too (Indian-language update shipped)
+5. Transitions — keep it minimal, two or three types max
+6. Colour grade — apply one LUT for a consistent look
 
-**Shorts specific settings**:
+**Shorts-specific settings**:
 - Aspect ratio: 9:16 (vertical)
-- Duration: 45-60 sec sweet spot
-- First 3 seconds: HOOK — retention drops karta hai pehle 3 sec mein
+- Duration: 45-60 sec is the sweet spot
+- First 3 seconds: the HOOK — retention drops sharply in the first 3s
 
 ## Step 6 — Thumbnail (Canva Pro)
 
-Shorts actually thumbnails kam matter karte hain (auto-scroll feed), but channel page pe dikhte hain:
+Thumbnails matter less for Shorts (auto-scroll feed), but they show up on your channel page:
 
-- Canva Pro free templates use karo
-- Bright color + big text contrast
-- Face close-up (apni ya Midjourney generated)
+- Use Canva Pro's free templates
+- Bright colour + big, contrasted text
+- Face close-up (yours, or generated via Midjourney)
 
 ## Step 7 — Upload Strategy
 
-**YouTube best practices Shorts ke liye**:
-- Title: 40-60 characters, include keyword
-- Description: 3-4 lines, Hindi aur English both
-- Tags: 5-10 relevant (#Shorts mandatory)
+**YouTube best practices for Shorts**:
+- Title: 40-60 characters, include the keyword
+- Description: 3-4 lines, a mix of Hindi and English
+- Tags: 5-10 relevant (\`#Shorts\` is mandatory)
 - Hashtags in title: max 3
-- Post consistency: daily > sporadic
+- Post consistently: daily beats sporadic
 
 **Timing (Indian audience)**:
-- Prime slots: 8-10 AM ya 7-10 PM IST
-- Weekends better than weekdays
+- Prime slots: 8-10 AM or 7-10 PM IST
+- Weekends beat weekdays
 
 ## Content Ideas That Work
 
-- **Tech explainers in 60 sec** ("Claude vs ChatGPT asli fark" type)
-- **Hindi life hacks**
-- **Indian street food stories**
+- **Tech explainers in 60 seconds** ("Claude vs ChatGPT, the real difference" style)
+- **Life hacks in Hindi**
+- **Indian street-food stories**
 - **Cricket / IPL analysis**
-- **Movie reviews (3 bullet format)**
-- **AI tool reviews** — tumhe AutoKaam content backup!
+- **Movie reviews in a 3-bullet format**
+- **AI tool reviews** — your AutoKaam content source!
 
 ## Scale Tactics
 
-Agar ye workflow chalne lage, automation add karo:
-- ChatGPT ke saath 10 scripts batch generate karo per week
-- Runway ke saath batch generation (queue 10 clips)
-- Sunday ko editing marathon — 5 shorts ek hi baithak mein
+Once this workflow is working, add automation:
+- Batch-generate 10 scripts per week with ChatGPT
+- Queue 10 Runway clips for batch generation
+- Sunday edit marathon — five Shorts in one sitting
 
-Consistent posting schedule se algorithm boost milta hai. 100 shorts pe monetization eligible ho jaoge YPP mein.`,
+Consistent posting gets algorithm lift. Hit 100 Shorts and you're eligible for YPP monetisation.`,
     category: "video-gen",
     level: "beginner",
     tags: ["YouTube Shorts", "Runway", "Suno", "Video Generation", "Content Creation"],

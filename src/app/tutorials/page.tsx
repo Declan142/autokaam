@@ -24,7 +24,7 @@ export default function TutorialsIndexPage() {
           AI Tutorials
         </h1>
         <p className="text-gray-600 mt-2 max-w-2xl">
-          Hands-on guides for Indian users. Setup steps, code snippets, cost analysis — real workflows jo kaam karte hain.
+          Hands-on guides for Indian users — setup steps, code snippets, cost analysis, and workflows that actually work in production.
         </p>
       </div>
 

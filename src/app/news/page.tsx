@@ -26,7 +26,7 @@ export default function NewsIndexPage() {
           AI News
         </h1>
         <p className="text-gray-600 mt-2 max-w-2xl">
-          Launches, deals, and India-angle stories from ChatGPT, Claude, Sarvam, Gemini, and the rest of the AI world.
+          Launches, deals, and India-focused stories from ChatGPT, Claude, Sarvam, Gemini, and the rest of the AI world.
         </p>
       </div>
 

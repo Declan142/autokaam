@@ -12,7 +12,7 @@ export default function Footer() {
               Auto<span className="text-orange-500">Kaam</span>
             </h3>
             <p className="text-sm text-gray-600">
-              India ka AI magazine + tool guide. Launches, tutorials, aur 50+ tools ka honest comparison with Indian pricing.
+              India&rsquo;s AI magazine and tool guide. Launches, tutorials, and 50+ tools compared honestly with Indian pricing.
             </p>
           </div>
           <div>

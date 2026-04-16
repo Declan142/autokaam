@@ -31,7 +31,7 @@ export default function HomePage() {
           <div>
             <span className="kicker">AutoKaam</span>
             <h1 className="font-serif-heading font-bold text-3xl sm:text-4xl text-gray-900 mt-1">
-              India ka AI Magazine
+              India&rsquo;s AI Magazine
             </h1>
           </div>
           <Link
@@ -194,13 +194,13 @@ export default function HomePage() {
           </h2>
           <div className="prose-magazine text-gray-700">
             <p>
-              AutoKaam ek editorial desk aur tool directory dono hai — ChatGPT, Claude, Sarvam, Gemini, aur open-source models pe daily coverage, plus 50+ tools ka comparison with Indian pricing (INR), Hindi-English guides, aur honest reviews.
+              AutoKaam is an editorial desk and tool directory in one — daily coverage of ChatGPT, Claude, Sarvam, Gemini, and the open-source frontier, plus 50+ tools compared with Indian pricing in INR, practical guides, and honest reviews.
             </p>
             <p>
-              Kya tum <Link href="/tutorials/ai-se-resume-kaise-banaye-chatgpt/">AI se resume banana</Link> seekhna chahte ho, <Link href="/tutorials/whatsapp-ai-chatbot-business-15-minutes/">WhatsApp chatbot banana</Link> chahte ho business ke liye, ya <Link href="/news/category/india/">India ke AI ecosystem</Link> ki latest samajhna chahte ho — sab yahan milega, bilingual format mein.
+              Whether you want to <Link href="/tutorials/ai-se-resume-kaise-banaye-chatgpt/">build a resume with AI</Link>, <Link href="/tutorials/whatsapp-ai-chatbot-business-15-minutes/">spin up a WhatsApp chatbot</Link> for your business, or follow <Link href="/news/category/india/">India&rsquo;s AI ecosystem</Link>, you&rsquo;ll find it here.
             </p>
             <p>
-              Hamari coverage foundational AI (Sarvam, Krutrim, Bhashini), frontier labs (Anthropic, OpenAI, Google DeepMind), developer tools (Cursor, Claude Code, Copilot), aur applied AI (creative, voice, automation) spans karti hai.
+              Our coverage spans foundational AI (Sarvam, Krutrim, Bhashini), the frontier labs (Anthropic, OpenAI, Google DeepMind), developer tools (Cursor, Claude Code, Copilot), and applied AI (creative, voice, automation).
             </p>
           </div>
         </div>

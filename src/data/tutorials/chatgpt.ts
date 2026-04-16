@@ -4,24 +4,24 @@ import { IMG } from "../news/images";
 export const chatgpt: Tutorial[] = [
   {
     slug: "ai-se-resume-kaise-banaye-chatgpt",
-    title: "AI Se Resume Kaise Banaye — ChatGPT Se 10 Minute Mein Professional CV",
-    subtitle: "Step-by-step guide: skill bullets se ATS-optimized resume tak, wo bhi free mein",
-    excerpt: "ChatGPT ki madad se professional resume banao 10 minute mein. ATS keywords, Indian format, fresher se senior tak har profile ke liye sample prompts aur templates.",
-    body: `Resume ek marketing document hai, biography nahi. Recruiter 6-7 seconds mein decide kar leta hai ki aage padhna hai ya nahi. ChatGPT is gap ko efficiently bhar deta hai — tum bulletproof draft banao, human polish karo, done.
+    title: "How to Build a Professional Resume With ChatGPT in 10 Minutes",
+    subtitle: "From skill bullets to an ATS-optimized CV — free, fast, and Indian-market ready",
+    excerpt: "Use ChatGPT to build a professional resume in ten minutes. ATS keywords, Indian-format conventions, and sample prompts that work for freshers and senior candidates alike.",
+    body: `A resume is a marketing document, not a biography. A recruiter decides in 6-7 seconds whether to keep reading. ChatGPT efficiently closes that gap — you produce a strong first draft, you polish it, done.
 
-## Kya Chahiye Start Karne Ke Liye
+## What You Need To Start
 
-- ChatGPT account (free tier kaafi hai, \`chat.openai.com\`)
-- Existing resume ya LinkedIn profile (jo bhi ho)
-- Target job description (us role ki ek listing copy karo)
-- 15 minutes focused time
+- A ChatGPT account (the free tier is plenty — \`chat.openai.com\`)
+- Your existing resume or LinkedIn profile (whichever you have)
+- A target job description (copy one listing for the role you want)
+- 15 focused minutes
 
-## Step 1 — Apna Context Dump Karo
+## Step 1 — Dump Structured Context
 
-ChatGPT ko ek structured dump dena hai — uska quality tumhare resume ka quality define karega. Template:
+Give ChatGPT a structured brief — its quality defines your resume's quality. Template:
 
 \`\`\`
-You are a senior tech recruiter. I need to build an ATS-optimized resume for an Indian job market.
+You are a senior tech recruiter. I need to build an ATS-optimized resume for the Indian job market.
 
 My background:
 - Name: Rohit Sharma
@@ -34,11 +34,11 @@ My background:
 Give me 5 strong resume bullet points for my TCS role — quantified, action verbs, outcome-focused. Indian rupee amounts where relevant.
 \`\`\`
 
-Notice: **achievements** section achievements ya projects specific banao. "Worked on backend" se kuch nahi milega; "Reduced p99 latency from 800ms to 180ms by adding Redis layer" — ye impact hai.
+Note: **make achievements or projects specific**. "Worked on backend" says nothing; "Reduced p99 latency from 800ms to 180ms by adding a Redis layer" is impact.
 
-## Step 2 — Role-Specific Keywords Nikalo
+## Step 2 — Extract Role-Specific Keywords
 
-ATS (Applicant Tracking System) keyword matching karta hai. Tumhari target JD ChatGPT mein paste karo aur bolo:
+An ATS (Applicant Tracking System) matches keywords. Paste your target JD into ChatGPT:
 
 \`\`\`
 Here's a job description. Extract the 15 most important technical and soft-skill keywords a resume must contain to pass an ATS screen.
@@ -46,11 +46,11 @@ Here's a job description. Extract the 15 most important technical and soft-skill
 [paste JD]
 \`\`\`
 
-Ab in keywords ko apne bullets mein naturally incorporate karo. Keyword stuffing mat karo — har 2-3 keyword per bullet kaafi hain.
+Incorporate those keywords naturally into your bullets. Don't keyword-stuff — two or three keywords per bullet is plenty.
 
-## Step 3 — Summary Likhwao
+## Step 3 — Write The Summary
 
-Top pe 2-3 line summary hoti hai. Iska formula:
+The top of a resume has a 2-3 line summary. Formula:
 
 **[Years] + [Role type] + [Top 3 skills] + [Big outcome]**
 
@@ -62,17 +62,17 @@ Highlight: 3+ years Python/React/AWS, latency improvements, microservices leader
 Tone: confident but not arrogant. Indian context.
 \`\`\`
 
-## Step 4 — Format Indian Recruiters Ke Liye
+## Step 4 — Format For Indian Recruiters
 
-Indian market standards:
-- **Photo**: NOT required (kuch companies avoid karti hain, neutral zone)
-- **Pages**: 1 page fresher, 2 pages tak senior
+Indian-market conventions:
+- **Photo**: not required (some companies explicitly avoid it; neutral zone)
+- **Pages**: one page for freshers, up to two pages for senior candidates
 - **Length**: 300-500 words
 - **Order**: Summary → Experience → Skills → Education → Projects → Certifications
 
 ## Step 5 — Final Review Prompt
 
-Draft ready? Ek final pass:
+Draft ready? Do one final pass:
 
 \`\`\`
 Review this resume against [JD]. Give me:
@@ -86,14 +86,14 @@ Review this resume against [JD]. Give me:
 
 ## Pro Tips
 
-- **Avoid generic buzzwords** — "team player," "hard worker" skip karo
-- **Numbers beat adjectives** — "improved performance" vs "cut build time from 12 min to 3 min"
-- **Save as PDF** with "FirstName_LastName_Resume.pdf" format
-- **LinkedIn mein same resume ka excerpt** daalo, consistency matter karti hai
+- **Skip generic buzzwords** — "team player," "hard worker" add no information
+- **Numbers beat adjectives** — "improved performance" loses to "cut build time from 12 min to 3 min"
+- **Save as PDF** using "FirstName_LastName_Resume.pdf" format
+- **Mirror content on LinkedIn** — consistency matters
 
-ChatGPT free tier is task ke liye perfectly enough hai. Agar tum advanced prompts + file uploads chahte ho to [ChatGPT Go](/news/chatgpt-go-free-indian-users-december-2026/) (India mein free) check karo.
+The ChatGPT free tier handles this task comfortably. If you want advanced prompts and file uploads, [ChatGPT Go](/news/chatgpt-go-free-indian-users-december-2026/) is free in India through December 2026.
 
-For claude users, [Claude prompt engineering for Indians](/tutorials/claude-prompt-engineering-indian-use-cases/) parallel guide hai.`,
+Claude users can follow the parallel [Claude prompt engineering guide](/tutorials/claude-prompt-engineering-indian-use-cases/).`,
     category: "chatgpt",
     level: "beginner",
     tags: ["Resume", "ChatGPT", "Career", "ATS", "Job Search"],
@@ -107,36 +107,36 @@ For claude users, [Claude prompt engineering for Indians](/tutorials/claude-prom
   },
   {
     slug: "chatgpt-gst-filing-accounting-india",
-    title: "ChatGPT For GST Filing & Accounting — Small Business Owner's Handbook",
-    subtitle: "HSN codes, input credit, GSTR-1 vs GSTR-3B — AI se samjho without a CA bill",
-    excerpt: "Small business owners ke liye ChatGPT se GST compliance handle karne ka practical guide. HSN lookups, invoice templates, filing checklist — all without CA consultation for routine queries.",
-    body: `Chhote business owners ke liye GST ek ongoing pain hai. Monthly filings, input credit reconciliation, HSN code lookups — har confusion par CA ko paisa dena sustainable nahi hai. ChatGPT routine queries ke liye surprisingly capable hai, par boundaries samjhna zaroori hai.
+    title: "ChatGPT for GST Filing and Accounting — A Small Business Handbook",
+    subtitle: "HSN codes, input credit, GSTR-1 vs GSTR-3B — what AI can cover without a CA bill",
+    excerpt: "A practical guide to using ChatGPT for routine GST compliance. HSN lookups, invoice templates, and a monthly filing checklist — without needing a CA consultation for every question.",
+    body: `GST is an ongoing pain for small business owners. Monthly filings, input credit reconciliation, HSN code lookups — paying a CA for every confusion isn't sustainable. ChatGPT is surprisingly capable for routine queries, but it's important to know the boundaries.
 
-## Pehle Disclaimer
+## First, A Disclaimer
 
-ChatGPT tax consultant nahi hai. Ye teen cheezon mein bahut acha hai:
-1. **Definition aur concept explain karna** (e.g., "ITC reversal kya hota hai?")
-2. **Document format aur templates** (e.g., "GST-compliant invoice ka structure")
-3. **Checklists aur reminders** (e.g., "GSTR-1 filing ke liye kya chahiye?")
+ChatGPT is not a tax consultant. It is strong at three things:
+1. **Explaining concepts and definitions** (e.g., "What is ITC reversal?")
+2. **Generating document formats and templates** (e.g., "the structure of a GST-compliant invoice")
+3. **Producing checklists and reminders** (e.g., "what's required for a GSTR-1 filing?")
 
-Ye teen cheezon mein bad hai:
-1. Real-time rate lookup (rates change hote hain, AI outdated ho sakta hai — GST portal verify karo)
+It is weak at three things:
+1. Real-time rate lookup (rates change; the model may be out of date — verify on the GST portal)
 2. Specific legal advice (court cases, notices, litigation)
-3. Filing actually submit karna (ye tum GSTN portal pe karte ho)
+3. Actually submitting filings (you do that on the GSTN portal)
 
 ## Use Case 1 — HSN Code Lookup
 
-Client ko invoice banana hai, product ka HSN code confirm karna hai. Prompt:
+A client needs an invoice and you want to confirm the HSN code. Prompt:
 
 \`\`\`
 I'm selling "handwoven cotton sarees" in India. What's the likely HSN code and applicable GST rate? Also list 2-3 related HSN codes in case mine is wrong.
 \`\`\`
 
-ChatGPT usually 4-5 digit HSN aur 5%/12% rate suggest karega. Verify on [cbic-gst.gov.in](https://cbic-gst.gov.in) before invoice finalize karo.
+ChatGPT will usually suggest a 4-5 digit HSN and a 5% or 12% rate. Verify on [cbic-gst.gov.in](https://cbic-gst.gov.in) before finalising the invoice.
 
 ## Use Case 2 — GST Invoice Template
 
-Compliant invoice ka format:
+A compliant invoice format:
 
 \`\`\`
 Create a GST-compliant invoice template in markdown for an Indian business. Must include:
@@ -150,33 +150,33 @@ Create a GST-compliant invoice template in markdown for an Indian business. Must
 - Digital signature placeholder
 \`\`\`
 
-Template ko Google Docs mein paste karo, har client ke liye reuse.
+Paste the output into Google Docs and reuse it per client.
 
 ## Use Case 3 — Input Tax Credit Reconciliation
 
-Ye ek confusing topic hai. ChatGPT concept explain kar sakta hai:
+This is a notoriously confusing topic. Ask ChatGPT to explain the concept:
 
 \`\`\`
 Explain ITC reconciliation in simple terms:
 1. What is GSTR-2B and how does it differ from GSTR-2A
-2. What happens if my purchase invoice doesn't show in supplier's GSTR-1
+2. What happens if my purchase invoice doesn't show in the supplier's GSTR-1
 3. Step-by-step monthly reconciliation process
 4. Common mistakes small businesses make
 \`\`\`
 
 ## Use Case 4 — Filing Checklist
 
-Monthly rhythm build karo:
+Build a monthly rhythm:
 
 \`\`\`
 Create a GST compliance calendar for a small Indian business (under Rs 5 cr turnover). List every GST-related deadline in a month, what form, what's due. Format as a checklist.
 \`\`\`
 
-Output use karke Google Calendar mein reminders set karo.
+Take the output and create Google Calendar reminders for each deadline.
 
-## Use Case 5 — Error Decoding
+## Use Case 5 — Decoding Notices
 
-GSTN portal se notices aate hain jinmein cryptic codes hote hain. Paste prompt:
+GSTN portal notices come with cryptic codes. Paste and ask:
 
 \`\`\`
 I got this GST notice. Explain in plain English what it means, what my options are, and whether I need a CA:
@@ -184,23 +184,23 @@ I got this GST notice. Explain in plain English what it means, what my options a
 [paste notice text]
 \`\`\`
 
-Warning: **Actual notice response draft karte waqt CA involve karo.** ChatGPT pe blindly notice reply karna galat hai.
+Warning: **always involve a CA when drafting an actual response to a notice.** Blind-replying to a notice based on ChatGPT output is a bad idea.
 
 ## Sanity Checks
 
-Har response ke saath ye karo:
-1. **Date check** — ChatGPT knowledge cutoff puchho, agar purana hai to current rate verify karo
-2. **Cross-check with portal** — HSN/rates hamesha [CBIC website](https://cbic-gst.gov.in) se confirm
-3. **CA for edge cases** — turnover bada hai, multi-state hai, exports hain → human expert
+For every response:
+1. **Date check** — ask ChatGPT about its knowledge cutoff; if it's old, verify current rates
+2. **Cross-check with the portal** — HSN codes and rates from [CBIC](https://cbic-gst.gov.in)
+3. **CA for edge cases** — large turnover, multi-state operations, or exports → human expert
 
 ## Free vs Paid
 
-Free tier (GPT-4o mini) ye saari use cases handle kar leta hai. Paid (ChatGPT Plus/Go) sirf tab chahiye agar:
-- Tumhe bahut saare queries roz karni hain
-- File upload chahiye (invoice PDFs analyze karna)
-- Longer context chahiye
+The free tier (GPT-4o mini) handles all of the above. Upgrade to Plus or Go only if:
+- You're running many queries daily
+- You need file upload (to analyse invoice PDFs)
+- You need longer context
 
-Indian users ke liye [ChatGPT Go free hai December 2026 tak](/news/chatgpt-go-free-indian-users-december-2026/).`,
+For Indian users, [ChatGPT Go is free through December 2026](/news/chatgpt-go-free-indian-users-december-2026/).`,
     category: "business",
     level: "intermediate",
     tags: ["GST", "ChatGPT", "Small Business", "Accounting", "India"],
@@ -213,10 +213,10 @@ Indian users ke liye [ChatGPT Go free hai December 2026 tak](/news/chatgpt-go-fr
   },
   {
     slug: "chatgpt-plus-vs-chatgpt-go-india",
-    title: "ChatGPT Plus Vs ChatGPT Go (India) — Kaunsa Lena Hai?",
-    subtitle: "Rs 399/mo vs Rs 1,999/mo vs Free — feature comparison aur honest recommendation",
-    excerpt: "ChatGPT Go (India-only, free till Dec 2026) vs Plus vs Free tier. Kaun kiske liye best, kya miss karoge, aur realistic usage patterns ke basis pe decision framework.",
-    body: `OpenAI ne India ke liye "ChatGPT Go" ek dedicated tier launch ki hai, aur December 2026 tak free kar di hai. Agar tum confused ho ki Plus lena hai ya Go enough hai ya free tier bhi kaam chalata hai — ye guide clear karega.
+    title: "ChatGPT Plus vs ChatGPT Go (India) — Which Tier Should You Pick?",
+    subtitle: "Rs 399/mo vs Rs 1,999/mo vs free — a feature comparison and an honest recommendation",
+    excerpt: "ChatGPT Go (India-only, free through December 2026), Plus, and the free tier compared. Who each one is best for, what you miss at each tier, and a decision framework based on realistic usage.",
+    body: `OpenAI has launched a dedicated "ChatGPT Go" tier for India and kept it free through December 2026. If you're confused about whether Plus is worth it, whether Go is enough, or whether the free tier will do — this guide will make the decision clear.
 
 ## Three Tiers — Quick Summary
 
@@ -234,60 +234,60 @@ Indian users ke liye [ChatGPT Go free hai December 2026 tak](/news/chatgpt-go-fr
 
 ## Decision Framework
 
-### Free tier — Sufficient for:
+### Free tier — sufficient for:
 - Occasional questions (5-10 per day)
 - Casual drafting (emails, short paragraphs)
 - Basic code help
-- Study / research for homework
+- Homework research
 
-**Limitation**: 10-15 message rate limit daily. Agar tum regular use karte ho to frustrating.
+**Limitation**: a daily cap of 10-15 messages. If you use it regularly, it's frustrating.
 
-### ChatGPT Go — Sweet spot for most Indians:
-- Students doing projects (100 messages/day enough hai)
-- Freelancers drafting content / code
+### ChatGPT Go — the sweet spot for most Indians:
+- Students doing projects (100 messages/day covers coursework)
+- Freelancers drafting content or code
 - Small business owners
 - Anyone doing regular AI-assisted work
 
-**Tumhe milta hai Rs 1,999/mo Plus ka ~80% value, Rs 0 mein.** No-brainer until Dec 2026.
+**You get roughly 80% of Plus's value at Rs 0.** A no-brainer through December 2026.
 
-### Plus (Rs 1,999/mo) — Worth it only if:
-- Tum developer ho jo roz 200+ messages fire karta hai
-- Long-context chahiye (128k+ tokens)
-- GPT-5.4 chahiye (frontier model, better reasoning)
-- Advanced image gen (DALL-E 3 unlimited)
-- Custom GPTs build karne hain
-- File uploads bahut heavy hain (large PDFs, spreadsheets)
+### Plus (Rs 1,999/mo) — worth it only if:
+- You're a developer sending 200+ messages a day
+- You need a long context window (128k+ tokens)
+- You want GPT-5.4 specifically (frontier model, better reasoning)
+- You want unlimited advanced image gen (DALL-E 3)
+- You want to build custom GPTs
+- Your file uploads are heavy (large PDFs, spreadsheets)
 
 ## Real Usage Patterns
 
-**Student / Fresher**: Go > Plus. 100 msg/day >> homework aur projects ke liye.
+**Student / fresher**: Go > Plus. 100 msg/day covers assignments and projects comfortably.
 
-**Freelance content writer**: Go adequate hai. Agar 50k+ word projects handle karte ho consistently, tab Plus.
+**Freelance content writer**: Go is enough. If you're consistently handling 50k+ word projects, consider Plus.
 
-**Developer** (backend / frontend): Plus ya [Claude Code](/tutorials/claude-code-setup-india/) better — dono coding-centric. ChatGPT coding OK hai but Anthropic/Cursor lead kar rahe.
+**Developer (backend/frontend)**: Plus — or [Claude Code](/tutorials/claude-code-setup-india/) — is usually the better pick. ChatGPT's coding is competent, but Anthropic/Cursor lead for development.
 
-**Business owner / GST / accounting**: Go kaafi hai. [GST tutorial](/tutorials/chatgpt-gst-filing-accounting-india/) wali use cases easily handle karta hai.
+**Business owner / GST / accounting**: Go is plenty. The [GST tutorial](/tutorials/chatgpt-gst-filing-accounting-india/) covers what you need.
 
-**Heavy researcher** (reports, whitepapers): Plus. Long context + file upload + projects feature bahut mafiya hai.
+**Heavy researcher** (reports, whitepapers): Plus. Long context + file upload + the Projects feature are genuinely useful.
 
-## How To Sign Up ChatGPT Go In India
+## How To Sign Up For ChatGPT Go In India
 
 1. Go to [chatgpt.com](https://chatgpt.com)
-2. Sign up with Indian mobile number (+91)
-3. Settings → Subscription → should show "ChatGPT Go — Free" badge
-4. Agar dikhta nahi, mobile number + region India verified hai ye confirm karo
+2. Sign up with an Indian mobile number (+91)
+3. Settings → Subscription → you should see the "ChatGPT Go — Free" badge
+4. If you don't, confirm your number and region are correctly set to India
 
-## December 2026 Ke Baad?
+## What Happens After December 2026?
 
-OpenAI announce kar chuki hai ki Go free period tak hai. Post-Dec 2026, pricing ~Rs 399/mo rakhne ki planning hai (official nahi yet, reports se). Tab bhi Plus ka 1/5 price.
+OpenAI has said Go is free through that date. Reports suggest post-December 2026 pricing will land around Rs 399/mo (not official). That's still about a fifth of Plus.
 
 ## Bottom Line
 
-- Har Indian user ko **ChatGPT Go** enable karna chahiye (free + best value)
-- Developer ya heavy user ho → **Plus** ka trial karo 1 month
-- Occasional use ho → **Free** chalao, zaroorat padi to upgrade karna easy hai
+- Every Indian user should enable **ChatGPT Go** (free and best value)
+- Developers or heavy users — try **Plus** for one month
+- Occasional use — the **Free** tier is fine; upgrade is easy when needed
 
-Aur agar tum Claude se compare kar rahe ho, [Claude vs ChatGPT detailed breakdown](/compare/chatgpt-vs-claude/) check karo.`,
+If you're also weighing Claude, see the [detailed ChatGPT vs Claude breakdown](/compare/chatgpt-vs-claude/).`,
     category: "chatgpt",
     level: "beginner",
     tags: ["ChatGPT", "ChatGPT Go", "Pricing", "India", "Comparison"],

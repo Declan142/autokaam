@@ -4,24 +4,24 @@ import { IMG } from "../news/images";
 export const claude: Tutorial[] = [
   {
     slug: "claude-code-setup-india",
-    title: "Claude Code Setup India — Install, Pricing (INR), Aur Pehla Project",
-    subtitle: "Anthropic ka CLI coding agent — Rs 1,660/mo Pro ya Rs 20/hr API, India se kaise start karein",
-    excerpt: "Claude Code (Anthropic's official CLI for pair programming) India se install karne ka complete guide. Pricing breakdown INR mein, auth setup, pehla terminal project walkthrough.",
-    body: `Claude Code Anthropic ka command-line coding agent hai — Claude Opus 4.6 ko terminal se drive karne ka official way. Indian developers ke liye ye Cursor / Copilot se alag approach hai: terminal-native, file edits, git-aware, 1M context.
+    title: "Claude Code Setup in India — Install, Pricing (INR), and Your First Project",
+    subtitle: "Anthropic's CLI coding agent — Rs 1,660/mo Pro or Rs 20/hr API — a walkthrough for Indian developers",
+    excerpt: "A complete guide to installing Claude Code — Anthropic's official CLI for pair programming — from India. Pricing in INR, auth setup, and a walkthrough of your first terminal-driven project.",
+    body: `Claude Code is Anthropic's command-line coding agent — the official way to drive Claude Opus 4.6 from a terminal. For Indian developers, it's a different approach from Cursor or Copilot: terminal-native, file-aware, git-aware, with a 1M context window.
 
-## Ye Kyun Try Karo
+## Why Try It
 
-**Cursor** IDE-based hai (VS Code fork). Claude Code **terminal-based** hai. Agar tum:
-- SSH / remote servers pe kaam karte ho
-- Tmux / neovim setup hai
-- Git-heavy workflow (commits, PRs, reviews)
-- Large codebases navigate karte ho
+**Cursor** is IDE-based (a VS Code fork). **Claude Code** is terminal-based. If you:
+- Work over SSH on remote servers
+- Live in tmux or neovim
+- Have a git-heavy workflow (commits, PRs, reviews)
+- Navigate large codebases
 
-...to Claude Code natural fit hai.
+...then Claude Code is a natural fit.
 
 ## Install Steps
 
-Prerequisite: Node 18+. Claude Code npm se install hota hai:
+Prerequisite: Node 18+. Claude Code installs from npm:
 
 \`\`\`bash
 npm install -g @anthropic-ai/claude-code
@@ -30,7 +30,7 @@ npm install -g @anthropic-ai/claude-code
 bun install -g @anthropic-ai/claude-code
 \`\`\`
 
-Version check:
+Verify:
 
 \`\`\`bash
 claude --version
@@ -38,47 +38,47 @@ claude --version
 
 ## Authentication (India Setup)
 
-Do options hain:
+Two options:
 
-### Option 1 — Claude Pro / Max Subscription (Recommended for Most)
+### Option 1 — Claude Pro / Max Subscription (Recommended For Most)
 
-- **Pro**: $20/mo (~Rs 1,660). Daily message budget, Claude Opus 4.6 access, Claude Code unlimited typical usage
-- **Max (5x)**: $100/mo (~Rs 8,300). 5x higher limits, priority
-- **Max (20x)**: $200/mo (~Rs 16,600). 20x limits
+- **Pro**: $20/mo (~Rs 1,660). Daily message budget, Claude Opus 4.6 access, typical Claude Code usage covered.
+- **Max (5x)**: $100/mo (~Rs 8,300). 5x limits, priority.
+- **Max (20x)**: $200/mo (~Rs 16,600). 20x limits.
 
-Sign up at [claude.ai](https://claude.ai) → subscribe → terminal mein:
+Sign up at [claude.ai](https://claude.ai), subscribe, then in your terminal:
 
 \`\`\`bash
 claude
 # First run → prompts for login → browser opens → auth flow
 \`\`\`
 
-### Option 2 — API Key (Pay-as-you-go)
+### Option 2 — API Key (Pay-As-You-Go)
 
-Anthropic console pe API key banao: [console.anthropic.com](https://console.anthropic.com)
+Create an API key on the Anthropic console at [console.anthropic.com](https://console.anthropic.com)
 
 \`\`\`bash
 export ANTHROPIC_API_KEY="sk-ant-..."
-# .bashrc / .zshrc mein add karo for persistence
+# Add to .bashrc / .zshrc for persistence
 \`\`\`
 
-Pricing Opus 4.6 ke liye:
+Pricing for Opus 4.6:
 - Input: $15/M tokens (~Rs 1,245)
 - Output: $75/M tokens (~Rs 6,225)
-- Typical 1-hour coding session: Rs 50-200
+- A typical 1-hour coding session: Rs 50-200
 
-Pro subscription usually better value unless tum occasionally use karte ho.
+The Pro subscription is usually better value unless you use it only occasionally.
 
-## Pehla Project — Real Walkthrough
+## Your First Project — A Real Walkthrough
 
-Ek sample Next.js app mein navigate karo:
+Navigate to a sample Next.js app:
 
 \`\`\`bash
 cd ~/my-project
 claude
 \`\`\`
 
-Prompt (terminal mein type):
+Prompt (type in the terminal):
 
 \`\`\`
 Read src/app/page.tsx and refactor it into smaller components.
@@ -86,16 +86,16 @@ Create src/components/ with logical splits.
 Update imports. Run tsc --noEmit to verify no errors.
 \`\`\`
 
-Claude Code:
-1. Page file read karega
-2. Plan propose karega
-3. Permission maangega har edit ke liye
-4. Components create karega
-5. Type check run karega
+Claude Code will:
+1. Read the page file
+2. Propose a plan
+3. Ask for permission on each edit
+4. Create components
+5. Run the type check
 
-Tum approve / reject har step pe kar sakte ho.
+You can approve or reject each step.
 
-## Pro Tips India Setup
+## Pro Tips For An Indian Setup
 
 ### 1. GitHub Integration
 \`\`\`bash
@@ -104,13 +104,13 @@ gh auth login
 \`\`\`
 
 ### 2. Slash Commands
-Claude Code mein useful commands:
-- \`/compact\` — long conversations summarize
-- \`/init\` — CLAUDE.md banao project ke liye
-- \`/review\` — git diff review karo
+Useful commands in Claude Code:
+- \`/compact\` — summarize long conversations
+- \`/init\` — generate a CLAUDE.md for the project
+- \`/review\` — review a git diff
 
-### 3. CLAUDE.md File
-Project root mein \`CLAUDE.md\` banao — Claude Code ise hamesha padta hai:
+### 3. The CLAUDE.md File
+Add a \`CLAUDE.md\` in the project root — Claude Code always reads it:
 
 \`\`\`markdown
 # Project Context
@@ -121,13 +121,13 @@ Project root mein \`CLAUDE.md\` banao — Claude Code ise hamesha padta hai:
 - Deployed on Cloudflare Pages
 
 ## Conventions
-- Use \`cn()\` helper for className merges
-- Components in src/components/, one per file
+- Use cn() helper for className merges
+- One component per file in src/components/
 - No Docker — direct installs only
 \`\`\`
 
 ### 4. Indian Network / VPN
-Kuch ISPs pe Anthropic routes slow ho sakte hain. Cloudflare WARP (free) usually fix kar deta hai:
+On some ISPs, routes to Anthropic are slow. Cloudflare WARP (free) usually fixes it:
 
 \`\`\`bash
 # Ubuntu/Debian
@@ -137,33 +137,33 @@ warp-cli register
 warp-cli connect
 \`\`\`
 
-## When To Use Claude Code vs Cursor
+## When to Use Claude Code vs Cursor
 
 - **Terminal / SSH / vim**: Claude Code
 - **Visual file browsing / debugger**: Cursor
-- **Big refactors across many files**: Claude Code (1M context handles it)
-- **Quick autocomplete while typing**: Cursor / Copilot
+- **Large refactors across many files**: Claude Code (the 1M context handles it)
+- **Quick autocomplete while typing**: Cursor or Copilot
 
-Dono parallel bhi use kar sakte ho — main Claude Code for planning, Cursor for typing.
+You can use both in parallel — Claude Code for planning, Cursor for typing.
 
-## Quota Monitoring
+## Monitoring Your Quota
 
-Pro subscription pe rate limits hit hote hain. Check:
+Pro hits rate limits. Check status:
 
 \`\`\`
 /status
 \`\`\`
 
-Daily usage dikhata hai. Free Claude.ai chat different bucket hai — Claude Code quota alag track hota hai.
+It shows daily usage. Note that the Claude.ai chat and Claude Code draw on separate quotas.
 
 ## Troubleshooting
 
-- **"Not logged in"**: \`claude logout\` then \`claude\` restart
-- **Rate limited**: Upgrade to Max or switch to API key for overflow
-- **Slow responses**: WARP VPN try karo
-- **Changes not saving**: Check file permissions, ya --dangerously-skip-permissions flag (careful)
+- **"Not logged in"**: \`claude logout\` then restart with \`claude\`
+- **Rate limited**: upgrade to Max or switch to an API key for overflow
+- **Slow responses**: try WARP VPN
+- **Changes not saving**: check file permissions, or use the \`--dangerously-skip-permissions\` flag (carefully)
 
-Claude Code proper daily driver tool hai Indian developers ke liye. [Cursor vs Copilot comparison](/tutorials/cursor-vs-copilot-2026/) se decision framework bhi check karo.`,
+Claude Code is a proper daily driver for Indian developers. Also see the [Cursor vs Copilot comparison](/tutorials/cursor-vs-copilot-2026/) for a decision framework.`,
     category: "claude",
     level: "intermediate",
     tags: ["Claude Code", "CLI", "Anthropic", "Developer Tools", "India"],
@@ -177,14 +177,14 @@ Claude Code proper daily driver tool hai Indian developers ke liye. [Cursor vs C
   },
   {
     slug: "claude-prompt-engineering-indian-use-cases",
-    title: "Claude Prompt Engineering — Indian Business Use Cases Ke Liye",
-    subtitle: "Karo Hindi-English mixed prompts, structured outputs, aur Indic language handling",
-    excerpt: "Claude Opus 4.6 ke liye prompt engineering, but Indian use cases ke lens se — Hindi outputs, regional language handling, business document templates, legal analysis patterns.",
-    body: `Claude Opus 4.6 frontier model hai, par uska max value unlock tabhi hota hai jab tum structured prompting karo. Indian use cases mein additional layer hai: bhasha mixed hoti hai, cultural context matter karta hai, aur business documents local format follow karte hain. Ye guide un patterns ko cover karta hai.
+    title: "Claude Prompt Engineering for Indian Business Use Cases",
+    subtitle: "Structured prompts, Indic language handling, and patterns that consistently work in the Indian context",
+    excerpt: "Prompt engineering for Claude Opus 4.6 through the lens of Indian use cases — multilingual outputs, regional handling, business document templates, and legal analysis patterns.",
+    body: `Claude Opus 4.6 is a frontier model, but its real value is unlocked when you prompt it in a structured way. Indian use cases add an extra layer: languages mix, cultural context matters, and business documents follow local formats. This guide covers the patterns that work.
 
 ## The Anthropic Prompt Template
 
-Anthropic ka official format XML tags use karta hai:
+Anthropic's recommended format uses XML tags:
 
 \`\`\`xml
 <role>
@@ -198,8 +198,8 @@ The NDA covers 5 years post-termination.
 
 <task>
 Review the attached NDA and flag:
-1. Unusual clauses for Indian context
-2. Terms that are against freelancer interests
+1. Unusual clauses for the Indian context
+2. Terms against the freelancer's interests
 3. Specific negotiation points
 </task>
 
@@ -216,36 +216,36 @@ Return as markdown:
 </document>
 \`\`\`
 
-XML tags Claude ko clearly parse karne mein help karte hain. GPT-style system prompts bhi work karte hain, but XML Anthropic-native hai.
+XML tags help Claude parse the prompt cleanly. GPT-style system prompts also work, but XML is Anthropic-native.
 
-## Pattern 1 — Hinglish Output
+## Pattern 1 — Professional English Output
 
-Tumhara audience Hindi samjhta hai but English bhi chalega. Claude ko instruct karo:
+For Indian business audiences, professional English with regional context works best:
 
 \`\`\`
-Respond in Hinglish — primarily English with Hindi phrases for concepts that Indians commonly express in Hindi (e.g., "jugaad," "bhai-behen," "seedha bolo").
-Use Devanagari script only when quoting proverbs or cultural sayings.
-Tone: conversational, like explaining to a WhatsApp group.
+Respond in clear, professional English.
+Use Indian examples (cities, companies, currencies in INR) where relevant.
+Tone: conversational but professional, as if explaining to a colleague.
 \`\`\`
 
-Ye professional writing ke liye bahut clean output deta hai.
+This produces clean, accessible output suitable for most Indian business contexts.
 
 ## Pattern 2 — Indic Language Native
 
-Sarvam use karte waqt ya direct Hindi content ke liye:
+For pure Hindi or regional content (e.g., when using Sarvam or native-language use cases):
 
 \`\`\`
 Entire response must be in Hindi (Devanagari script).
-Use formal "aap" register suitable for business context.
+Use the formal "aap" register, suitable for business contexts.
 Avoid transliterated English words where natural Hindi exists.
-Length: 300-400 shabd.
+Length: 300-400 words.
 \`\`\`
 
-Pure Hindi output chahiye to [Sarvam AI](/tutorials/sarvam-hindi-banking-voice-automation/) better hai for native fluency. Claude pure Hindi mein acha hai but Sarvam-grade nahi.
+For truly native fluency in Hindi, [Sarvam AI](/tutorials/sarvam-hindi-banking-voice-automation/) is the better tool. Claude handles Hindi well, but not at Sarvam-grade fluency.
 
 ## Pattern 3 — Structured Business Output
 
-Invoice analysis, contract review, ya financial summary:
+For invoice analysis, contract review, or financial summaries:
 
 \`\`\`xml
 <output_format>
@@ -259,17 +259,17 @@ Return JSON:
 </output_format>
 \`\`\`
 
-Structured output tumhare code mein directly use ho sakta hai.
+Structured output drops directly into your code.
 
 ## Pattern 4 — Long Document Handling
 
-1M context Claude Opus 4.6 ka edge hai. Large docs efficiently process karne ke liye:
+The 1M context window is Claude Opus 4.6's edge. For large docs:
 
 \`\`\`
 <instruction>
 I'm attaching a 200-page contract.
 DO NOT summarize the entire document.
-Instead, find these specific 5 items and quote the relevant section verbatim:
+Instead, find these 5 specific items and quote the relevant section verbatim:
 
 1. Termination conditions
 2. Auto-renewal clauses
@@ -285,11 +285,11 @@ Return each as:
 </instruction>
 \`\`\`
 
-Specific extraction >> vague summary.
+Specific extraction beats vague summaries.
 
-## Pattern 5 — Chain of Thought for Indian Legal
+## Pattern 5 — Chain-of-Thought For Indian Legal
 
-Complex queries (tax, compliance, labor law) ke liye:
+For complex queries (tax, compliance, labour law):
 
 \`\`\`
 <task>
@@ -304,53 +304,53 @@ Before answering, think through:
 4. Treaty benefits (India-UAE DTAA)
 
 Show your reasoning step-by-step, then give a final checklist.
-Flag where a CA / CS should confirm.
+Flag anywhere a CA / CS should confirm.
 </thinking_style>
 \`\`\`
 
 ## Pattern 6 — Persona Consistency
 
-Agar tum Claude ko ongoing ambassador banate ho (blog writer, customer support), persona define karo:
+For ongoing agents (blog writer, customer support), define a persona:
 
 \`\`\`xml
 <persona>
 Name: Asha
 Role: Customer support agent for TaxWalaAI
 Tone: Warm, patient, technically precise
-Always: Use "aap" form. Offer to switch to Hindi/Tamil/Telugu if user indicates preference.
-Never: Use Western-centric examples (use INR, Indian cities, Indian cultural references)
-Signature: Always end with "— Asha, TaxWalaAI team"
+Always: use formal English; offer to switch to Hindi/Tamil/Telugu if the user indicates preference
+Never: use Western-centric examples (use INR, Indian cities, Indian cultural references)
+Signature: always end with "— Asha, TaxWalaAI team"
 </persona>
 \`\`\`
 
-Har conversation ke start mein ye persona inject karo — consistency mil jayegi.
+Inject this persona at the start of each conversation for consistency.
 
-## Pattern 7 — Safety Rails for India Context
+## Pattern 7 — Safety Rails For The Indian Context
 
-Certain topics Indian context mein extra care chahiye:
+Certain topics need extra care:
 - Religious / political opinions
 - Regional stereotypes
 - Caste references
 - Bollywood celebrities (defamation risk)
 
-Instruction add karo:
+Add instructions like:
 
 \`\`\`
 Do not make statements about specific individuals that could be defamatory under Indian law.
-If user asks opinions on political parties or religious groups, provide only factual information with sources.
+If asked about political parties or religious groups, provide only factual information with sources.
 \`\`\`
 
 ## Debugging Prompts
 
-Output expected nahi mila? Pehle ye check karo:
-1. **Temperature** — Claude Code pe default 0 work karta hai mostly. Creative tasks ke liye 0.7+
+Output not what you expected? Check these first:
+1. **Temperature** — Claude Code defaults to 0, which works for most tasks. For creative work, go to 0.7+
 2. **Task specificity** — "Write a marketing email" vs "Write a 120-word marketing email for a B2B SaaS launch in Bangalore"
-3. **Examples** — 1-2 examples (few-shot) output format define karte hain
+3. **Examples** — one or two (few-shot) examples pin down the output format
 
-Claude's full API docs: [docs.anthropic.com](https://docs.anthropic.com). Aur [Claude Code setup](/tutorials/claude-code-setup-india/) terminal use case ke liye.`,
+Claude's full API docs: [docs.anthropic.com](https://docs.anthropic.com). For the terminal use case, see [Claude Code setup](/tutorials/claude-code-setup-india/).`,
     category: "claude",
     level: "intermediate",
-    tags: ["Claude", "Prompt Engineering", "Hinglish", "Business"],
+    tags: ["Claude", "Prompt Engineering", "Business", "India"],
     image: IMG.chat,
     imageAlt: "AI chat interface",
     author: "AutoKaam Editorial",

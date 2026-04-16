@@ -4,17 +4,17 @@ import { IMG } from "../news/images";
 export const imageGen: Tutorial[] = [
   {
     slug: "midjourney-v8-bollywood-poster-design",
-    title: "Midjourney V8 Se Bollywood-Style Poster Kaise Banaye",
-    subtitle: "V8 ka breakthrough text rendering use karke Hindi-English titled posters design karo — prompt templates aur tricks",
-    excerpt: "Midjourney V8 Alpha ke improved text rendering ka faida uthao. Bollywood poster aesthetic, Hindi titles, character composition — complete prompting framework with 20+ examples.",
-    body: `Midjourney V8 Alpha ka sabse bada jump text rendering hai — jahan pehle "GHATAK" ka poster mangte to "GHKTK" aata, ab clean text render hota hai. Ye un creators ke liye game-changer hai jo poster design, YouTube thumbnails, ya Bollywood-style concepts banate hain.
+    title: "Designing Bollywood-Style Posters With Midjourney V8",
+    subtitle: "Use V8's breakthrough text rendering for bilingual posters — prompt templates and tricks",
+    excerpt: "Take advantage of Midjourney V8 Alpha's improved text rendering. Bollywood poster aesthetics, stylised titles, and character composition — a complete prompting framework with examples.",
+    body: `Midjourney V8 Alpha's biggest jump is text rendering — where earlier versions would mangle "GHATAK" into "GHKTK", the new model now produces clean text. That's a game-changer for anyone building posters, YouTube thumbnails, or Bollywood-style concept art.
 
-## Access V8 First
+## Get Access To V8 First
 
-- Midjourney subscription chahiye (Basic $10/mo, Standard $30/mo)
-- Discord server join karo: [discord.gg/midjourney](https://discord.gg/midjourney)
-- V8 Alpha enable karo: \`/settings\` → toggle "V8" under version
-- Ya prompt mein hardcode: \`--v 8\`
+- You need a Midjourney subscription (Basic $10/mo, Standard $30/mo)
+- Join the Discord server: [discord.gg/midjourney](https://discord.gg/midjourney)
+- Enable V8 Alpha: \`/settings\` → toggle "V8" under version
+- Or hardcode in the prompt: \`--v 8\`
 
 ## Basic Bollywood Poster Template
 
@@ -30,40 +30,40 @@ poster aspect ratio --ar 2:3 --v 8 --s 300
 
 Key parameters:
 - \`--ar 2:3\` — vertical poster ratio
-- \`--v 8\` — V8 model explicit
-- \`--s 300\` — stylization higher for dramatic look
-- \`--chaos 20\` — add for slight variation in 4-grid output
+- \`--v 8\` — explicit V8 model
+- \`--s 300\` — higher stylization for a dramatic look
+- \`--chaos 20\` — add this for variation in the 4-grid output
 
 ## Text Rendering Tricks
 
-V8 bada jump hai but still tricks help karte hain:
+V8 is a big jump, but a few tricks still help:
 
-### Trick 1 — Quote the Exact Text
+### Trick 1 — Quote The Exact Text
 \`\`\`
 movie title "DILWALE DULHANIA" in bold cinematic serif font at the top center
 \`\`\`
 
-Quoted text rendering more reliable hai.
+Quoted text renders more reliably.
 
-### Trick 2 — Specify Font Style
+### Trick 2 — Specify A Font Style
 \`\`\`
 title in "distressed metal font" with chrome effect
 \`\`\`
 
-"Distressed metal", "serif", "sans-serif", "script," "handwritten" — ye keywords V8 respect karta hai.
+"Distressed metal," "serif," "sans-serif," "script," "handwritten" — V8 respects these keywords.
 
-### Trick 3 — Avoid Devanagari (for now)
-V8 Devanagari script mein still struggle karta hai. Workaround: Roman Hindi (Hinglish):
+### Trick 3 — Avoid Devanagari (For Now)
+V8 still struggles with Devanagari. Workaround: use romanised Hindi:
 
 \`\`\`
-title "SHAITAAN KA SAYA" in Hinglish romanized text, bold dripping blood font
+title "SHAITAAN KA SAYA" in romanised text, bold dripping blood font
 \`\`\`
 
-Pure Devanagari chahiye to Photoshop mein baad mein add karo (separate layer).
+If you need proper Devanagari, add it as a separate Photoshop layer afterwards.
 
-## Celebrity Likeness — Legal Safe Approach
+## Celebrity Likeness — The Legal-Safe Approach
 
-Specific actor likeness generate karna Indian law (personality rights) ke khilaaf hai — especially [recent Bachchan / SRK rulings](/news/amitabh-bachchan-shahrukh-khan-ai-deepfake-protection/) ke baad.
+Generating specific actor likenesses is against Indian personality-rights law, especially after the [recent Bachchan / SRK rulings](/news/amitabh-bachchan-shahrukh-khan-ai-deepfake-protection/).
 
 **Do this instead**:
 
@@ -73,13 +73,13 @@ intense brown eyes, classical Indian features,
 dressed in dark leather jacket, cinematic headshot
 \`\`\`
 
-Generic "Indian male actor" is safe; "Amitabh Bachchan" is not.
+A generic "Indian male actor" is safe; "Amitabh Bachchan" is not.
 
-## Color Palettes for Bollywood Feel
+## Colour Palettes For A Bollywood Feel
 
-Different genre, different palette:
+Different genres want different palettes:
 
-**Action/Thriller**: orange-teal grade, neon accent
+**Action/Thriller**: orange-teal grade, neon accents
 \`\`\`
 orange and teal color grading, neon red accents, high contrast shadows
 \`\`\`
@@ -89,12 +89,12 @@ orange and teal color grading, neon red accents, high contrast shadows
 warm sepia tones, golden hour lighting, soft diffusion, dreamy
 \`\`\`
 
-**Horror**: desaturated blue-black, red blood pops
+**Horror**: desaturated blue-black with red blood pops
 \`\`\`
 desaturated blue-black palette, scattered red accents, cold menacing atmosphere
 \`\`\`
 
-**Comedy**: bright primary colors, vintage poster style
+**Comedy**: bright primary colours, vintage poster style
 \`\`\`
 bright primary colors, vintage 1980s Bollywood poster style, Priya Paul fonts
 \`\`\`
@@ -124,12 +124,12 @@ title text on sky portion, minimalist composition
 
 ## Workflow: Midjourney → Photoshop
 
-Midjourney ke output ko final poster banane ke liye:
+To take Midjourney output to a finished poster:
 
-1. **Generate in Midjourney** (4-6 iterations, upscale best one)
-2. **Download uppscale** (2048x3072 min)
+1. **Generate in Midjourney** (4-6 iterations, upscale the best one)
+2. **Download the upscale** (2048x3072 minimum)
 3. **Photoshop / Figma**:
-   - Add exact Devanagari title with proper font (e.g., Kalam, Kruti Dev)
+   - Add the exact Devanagari title with a proper font (e.g., Kalam, Kruti Dev)
    - Logo placement
    - Release date, cast credits
    - Censor board + disclaimer strip
@@ -137,18 +137,18 @@ Midjourney ke output ko final poster banane ke liye:
 ## Pricing Reality Check
 
 - Midjourney Basic ($10 ~ Rs 830/mo): 200 images/month → enough for occasional use
-- Standard ($30 ~ Rs 2,500/mo): unlimited relaxed + 15 hrs fast → recommended for creators
+- Standard ($30 ~ Rs 2,500/mo): unlimited relaxed + 15 hrs fast → recommended for active creators
 - Pro ($60 ~ Rs 4,980/mo): 30 hrs fast + stealth mode (private)
 
-For content creators doing 20+ posters/month, Standard plan sweet spot hai.
+For creators doing 20+ posters a month, the Standard plan is the sweet spot.
 
 ## Alternative Tools
 
-- **[DALL-E 3](/tools/dall-e-3/)**: ChatGPT Plus subscribers get it free; decent but weaker on artistic styles
-- **FLUX**: open source, locally runnable, free but requires GPU
-- **Imagen 3** (Google): photorealism ke liye strong
+- **[DALL-E 3](/tools/dall-e-3/)**: free for ChatGPT Plus subscribers; decent but weaker on artistic styles
+- **FLUX**: open source, runs locally, free if you have a GPU
+- **Imagen 3** (Google): strong for photorealism
 
-Midjourney still leads for artistic / dramatic compositions. V8 ke baad text rendering gap bhi closed.`,
+Midjourney still leads for artistic and dramatic compositions, and with V8 the text-rendering gap is closed.`,
     category: "image-gen",
     level: "beginner",
     tags: ["Midjourney", "Bollywood", "Poster Design", "Design"],
