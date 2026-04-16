@@ -2,25 +2,112 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  --accent: #f97316;
+  --accent-hover: #ea580c;
+  --surface: #fafafa;
+  --border: #e5e7eb;
+  --muted: #64748b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Magazine-style headings */
+.font-serif-heading {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.02em;
+}
+
+/* Image overlay gradient for magazine cards */
+.image-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+}
+
+/* Featured card hover effect */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
+}
+
+/* Smooth image zoom on card hover */
+.card-image-zoom {
+  overflow: hidden;
+}
+.card-image-zoom img,
+.card-image-zoom .bg-image {
+  transition: transform 0.6s ease;
+}
+.card-image-zoom:hover img,
+.card-image-zoom:hover .bg-image {
+  transform: scale(1.05);
+}
+
+/* Kicker line (small colored text above heading) */
+.kicker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+/* Prose adjustments for articles */
+.prose-magazine {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+.prose-magazine h2 {
+  font-family: Georgia, serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+.prose-magazine h3 {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose-magazine p {
+  margin-bottom: 1rem;
+}
+.prose-magazine ul, .prose-magazine ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.prose-magazine ul li {
+  list-style: disc;
+  margin-bottom: 0.25rem;
+}
+.prose-magazine a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-magazine strong {
+  font-weight: 700;
+}
+.prose-magazine blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1.5rem 0;
+  color: #475569;
 }

@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   description:
     "Compare 50+ AI tools with Indian pricing (INR), Hindi guides, and honest reviews. ChatGPT vs Claude, Midjourney vs DALL-E, and more — sab Hindi mein samjho.",
   metadataBase: new URL("https://autokaam.com"),
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      noarchive: true,
+      nosnippet: true,
+      noimageindex: true,
+    },
+  },
   openGraph: {
     siteName: "AutoKaam",
     locale: "en_IN",
