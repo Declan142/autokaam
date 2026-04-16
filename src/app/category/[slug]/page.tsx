@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cat = getCategoryInfo(slug as Category);
   if (!cat) return {};
   return {
-    title: `Best ${cat.name} AI Tools (2026) — Reviews & Pricing India`,
-    description: `Compare the best ${cat.name.toLowerCase()} AI tools in 2026. ${cat.description}. Indian pricing (INR), features, and honest reviews.`,
+    title: `Best ${cat.name} Tools (2026) — Reviews & Pricing India`,
+    description: `Compare the best ${cat.name.toLowerCase()} tools in 2026. ${cat.description}. Indian pricing (INR), features, and honest reviews.`,
   };
 }
 
@@ -41,7 +41,7 @@ export default async function CategoryPage({ params }: Props) {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
           <span className="text-4xl">{cat.icon}</span>
-          Best {cat.name} AI Tools (2026)
+          Best {cat.name} Tools (2026)
         </h1>
         <p className="text-gray-600 mt-2">{cat.description}</p>
         <p className="text-gray-500 text-sm mt-1">{cat.nameHi} — {tools.length} tools available</p>
