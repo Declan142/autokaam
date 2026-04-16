@@ -8,11 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "AutoKaam — India ka #1 AI Tool Comparison Platform",
+    default: "AutoKaam — India's AI Magazine & Tool Comparison Platform",
     template: "%s | AutoKaam",
   },
   description:
-    "Compare 50+ AI tools with Indian pricing (INR), Hindi guides, and honest reviews. ChatGPT vs Claude, Midjourney vs DALL-E, and more — sab Hindi mein samjho.",
+    "India's AI magazine plus 50+ tools compared in INR with honest reviews. Daily news on ChatGPT, Claude, Sarvam, Gemini, and the rest of the frontier.",
   metadataBase: new URL("https://autokaam.com"),
   openGraph: {
     siteName: "AutoKaam",

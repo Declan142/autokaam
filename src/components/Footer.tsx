@@ -53,7 +53,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-200 text-center text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} AutoKaam.com — India ka AI Tool Guide</p>
+          <p>&copy; {new Date().getFullYear()} AutoKaam.com — India&rsquo;s AI Magazine &amp; Tool Guide</p>
         </div>
       </div>
     </footer>

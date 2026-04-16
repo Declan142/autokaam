@@ -46,12 +46,12 @@ export default async function ComparePage({ params }: Props) {
     mainEntity: [
       {
         "@type": "Question",
-        name: `${toolA.name} vs ${toolB.name} mein kaunsa better hai?`,
-        acceptedAnswer: { "@type": "Answer", text: `${toolA.name} (rating: ${toolA.rating}/5) aur ${toolB.name} (rating: ${toolB.rating}/5) dono apne-apne use cases ke liye best hain. ${toolA.name} ke pros: ${toolA.pros.join(", ")}. ${toolB.name} ke pros: ${toolB.pros.join(", ")}.` },
+        name: `Which is better, ${toolA.name} or ${toolB.name}?`,
+        acceptedAnswer: { "@type": "Answer", text: `Both ${toolA.name} (rating: ${toolA.rating}/5) and ${toolB.name} (rating: ${toolB.rating}/5) are best at different things. ${toolA.name} strengths: ${toolA.pros.join(", ")}. ${toolB.name} strengths: ${toolB.pros.join(", ")}.` },
       },
       {
         "@type": "Question",
-        name: `${toolA.name} aur ${toolB.name} ki pricing kya hai India mein?`,
+        name: `What is the pricing for ${toolA.name} and ${toolB.name} in India?`,
         acceptedAnswer: { "@type": "Answer", text: `${toolA.name}: ${formatPrice(toolA.pricing.priceInrMonthly)}/month (${toolA.pricing.freeTier}). ${toolB.name}: ${formatPrice(toolB.pricing.priceInrMonthly)}/month (${toolB.pricing.freeTier}).` },
       },
     ],
@@ -73,7 +73,7 @@ export default async function ComparePage({ params }: Props) {
         {toolA.name} vs {toolB.name} — Detailed Comparison (2026)
       </h1>
       <p className="text-gray-600 mb-8">
-        {toolA.name} aur {toolB.name} mein kaunsa better hai? Pricing, features, pros &amp; cons sab compare karo — Indian pricing (INR) mein.
+        Which is better between {toolA.name} and {toolB.name}? Pricing, features, pros and cons — compared side-by-side in Indian rupees (INR).
       </p>
 
       <div className="rounded-xl border border-gray-200 p-6 bg-white">
@@ -96,10 +96,10 @@ export default async function ComparePage({ params }: Props) {
       </div>
 
       <section className="mt-8 rounded-xl bg-gray-50 p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-3">Verdict: {toolA.name} ya {toolB.name}?</h2>
+        <h2 className="text-xl font-semibold text-gray-900 mb-3">Verdict: {toolA.name} or {toolB.name}?</h2>
         <div className="text-sm text-gray-700 space-y-2">
-          <p><strong>{toolA.name}</strong> choose karo agar tumhe {toolA.pros[0].toLowerCase()} chahiye. Rating: {toolA.rating}/5. Price: {formatPrice(toolA.pricing.priceInrMonthly)}/mo.</p>
-          <p><strong>{toolB.name}</strong> choose karo agar tumhe {toolB.pros[0].toLowerCase()} chahiye. Rating: {toolB.rating}/5. Price: {formatPrice(toolB.pricing.priceInrMonthly)}/mo.</p>
+          <p><strong>{toolA.name}</strong> — pick this if you need {toolA.pros[0].toLowerCase()}. Rating: {toolA.rating}/5. Price: {formatPrice(toolA.pricing.priceInrMonthly)}/mo.</p>
+          <p><strong>{toolB.name}</strong> — pick this if you need {toolB.pros[0].toLowerCase()}. Rating: {toolB.rating}/5. Price: {formatPrice(toolB.pricing.priceInrMonthly)}/mo.</p>
         </div>
       </section>
 
@@ -107,11 +107,11 @@ export default async function ComparePage({ params }: Props) {
         <h2 className="text-xl font-semibold text-gray-900 mb-4">FAQs</h2>
         <div className="space-y-4">
           <div>
-            <h3 className="font-medium text-gray-900">{toolA.name} vs {toolB.name} mein kaunsa better hai?</h3>
-            <p className="text-sm text-gray-600 mt-1">Dono apne-apne use cases ke liye best hain. {toolA.name} ({toolA.rating}/5) {toolA.pros[0].toLowerCase()} ke liye better hai. {toolB.name} ({toolB.rating}/5) {toolB.pros[0].toLowerCase()} ke liye better hai.</p>
+            <h3 className="font-medium text-gray-900">Which is better, {toolA.name} or {toolB.name}?</h3>
+            <p className="text-sm text-gray-600 mt-1">Both tools lead in different use cases. {toolA.name} ({toolA.rating}/5) is better for {toolA.pros[0].toLowerCase()}. {toolB.name} ({toolB.rating}/5) is better for {toolB.pros[0].toLowerCase()}.</p>
           </div>
           <div>
-            <h3 className="font-medium text-gray-900">{toolA.name} aur {toolB.name} ki pricing kya hai India mein?</h3>
+            <h3 className="font-medium text-gray-900">What is the pricing for {toolA.name} and {toolB.name} in India?</h3>
             <p className="text-sm text-gray-600 mt-1">{toolA.name}: {formatPrice(toolA.pricing.priceInrMonthly)}/month ({toolA.pricing.freeTier}). {toolB.name}: {formatPrice(toolB.pricing.priceInrMonthly)}/month ({toolB.pricing.freeTier}).</p>
           </div>
         </div>

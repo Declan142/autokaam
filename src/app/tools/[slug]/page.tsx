@@ -47,9 +47,9 @@ export default async function ToolPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
-      { "@type": "Question", name: `${tool.name} free hai ya paid?`, acceptedAnswer: { "@type": "Answer", text: `${tool.name} ${getPricingLabel(tool.pricing.model)} hai. ${tool.pricing.freeTier}. Monthly price: ${formatPrice(tool.pricing.priceInrMonthly)}.` } },
-      { "@type": "Question", name: `${tool.name} ka best alternative kya hai?`, acceptedAnswer: { "@type": "Answer", text: `${tool.name} ke alternatives hain: ${related.map((r) => r.name).join(", ")}.` } },
-      { "@type": "Question", name: `${tool.name} kya kaam kar sakta hai?`, acceptedAnswer: { "@type": "Answer", text: `${tool.name} ke main features: ${tool.features.join(", ")}.` } },
+      { "@type": "Question", name: `Is ${tool.name} free or paid?`, acceptedAnswer: { "@type": "Answer", text: `${tool.name} is ${getPricingLabel(tool.pricing.model)}. ${tool.pricing.freeTier}. Monthly price: ${formatPrice(tool.pricing.priceInrMonthly)}.` } },
+      { "@type": "Question", name: `What are the best alternatives to ${tool.name}?`, acceptedAnswer: { "@type": "Answer", text: `Top alternatives to ${tool.name}: ${related.map((r) => r.name).join(", ")}.` } },
+      { "@type": "Question", name: `What can ${tool.name} do?`, acceptedAnswer: { "@type": "Answer", text: `${tool.name}'s main features: ${tool.features.join(", ")}.` } },
     ],
   };
 
@@ -74,7 +74,6 @@ export default async function ToolPage({ params }: Props) {
         <div>
           <h1 className="text-3xl font-bold text-gray-900">{tool.name}</h1>
           <p className="text-lg text-gray-600 mt-1">{tool.tagline}</p>
-          <p className="text-base text-gray-500 mt-1 italic">{tool.taglineHi}</p>
           <div className="flex items-center gap-3 mt-3 flex-wrap">
             <span className="text-yellow-500">{"★".repeat(Math.round(tool.rating))}</span>
             <span className="text-sm text-gray-500">{tool.rating}/5</span>
@@ -89,9 +88,8 @@ export default async function ToolPage({ params }: Props) {
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-8">
           <section>
-            <h2 className="text-xl font-semibold text-gray-900 mb-3">{tool.name} Kya Hai?</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-3">What is {tool.name}?</h2>
             <p className="text-gray-700 mb-3">{tool.description}</p>
-            <p className="text-gray-600 italic">{tool.descriptionHi}</p>
           </section>
 
           <section>
@@ -121,7 +119,7 @@ export default async function ToolPage({ params }: Props) {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-gray-900 mb-3">{tool.name} Kiske Liye Best Hai?</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-3">Who is {tool.name} best for?</h2>
             <div className="flex flex-wrap gap-2">
               {tool.useCases.map((uc) => <span key={uc} className="text-sm px-3 py-1.5 rounded-full bg-blue-50 text-blue-700">{uc}</span>)}
             </div>
@@ -151,16 +149,16 @@ export default async function ToolPage({ params }: Props) {
             <h2 className="text-xl font-semibold text-gray-900 mb-3">FAQs</h2>
             <div className="space-y-4">
               <div>
-                <h3 className="font-medium text-gray-900">{tool.name} free hai ya paid?</h3>
-                <p className="text-sm text-gray-600 mt-1">{tool.name} {getPricingLabel(tool.pricing.model)} hai. {tool.pricing.freeTier}. Monthly price: {formatPrice(tool.pricing.priceInrMonthly)}.</p>
+                <h3 className="font-medium text-gray-900">Is {tool.name} free or paid?</h3>
+                <p className="text-sm text-gray-600 mt-1">{tool.name} is {getPricingLabel(tool.pricing.model)}. {tool.pricing.freeTier}. Monthly price: {formatPrice(tool.pricing.priceInrMonthly)}.</p>
               </div>
               <div>
-                <h3 className="font-medium text-gray-900">{tool.name} ka best alternative kya hai?</h3>
-                <p className="text-sm text-gray-600 mt-1">{tool.name} ke alternatives hain: {related.map((r) => r.name).join(", ")}.</p>
+                <h3 className="font-medium text-gray-900">What are the best alternatives to {tool.name}?</h3>
+                <p className="text-sm text-gray-600 mt-1">Top alternatives to {tool.name}: {related.map((r) => r.name).join(", ")}.</p>
               </div>
               <div>
-                <h3 className="font-medium text-gray-900">{tool.name} kya kaam kar sakta hai?</h3>
-                <p className="text-sm text-gray-600 mt-1">{tool.name} ke main features: {tool.features.join(", ")}.</p>
+                <h3 className="font-medium text-gray-900">What can {tool.name} do?</h3>
+                <p className="text-sm text-gray-600 mt-1">{tool.name}&rsquo;s main features: {tool.features.join(", ")}.</p>
               </div>
             </div>
           </section>

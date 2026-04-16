@@ -72,12 +72,10 @@ export default async function CategoryPage({ params }: Props) {
         <h2 className="text-xl font-semibold text-gray-900 mb-3">{cat.name} AI Tools — Complete Guide</h2>
         <div className="prose prose-sm prose-gray">
           <p>
-            {cat.name} ({cat.nameHi}) category mein {tools.length} AI tools available hain AutoKaam pe.
-            In tools ki madad se aap apna kaam tezi se aur efficiently kar sakte hain.
+            AutoKaam lists {tools.length} AI tools in the {cat.name} ({cat.nameHi}) category — each one tested, reviewed, and priced in Indian rupees.
           </p>
           <p>
-            Har tool ki detailed review padho — pricing Indian Rupees (INR) mein, features, pros &amp; cons, aur best alternatives.
-            Apne budget aur zaroorat ke hisaab se sahi tool choose karo.
+            Each tool has a detailed review covering INR pricing, features, pros and cons, and the best alternatives. Pick the tool that fits your budget and requirements.
           </p>
         </div>
       </section>
