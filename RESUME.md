@@ -1,104 +1,110 @@
-# AutoKaam — Resume State (Apr 16 2026)
+# AutoKaam — Resume State (Apr 16 2026, Session 2)
 
-**Live**: https://autokaam.com (CF Pages, noindex active)
+**Live**: https://autokaam.com (CF Pages, **Google unblocked**, 222 pages)
 **Repo**: Declan142/autokaam
 **Stack**: Next.js 16 static + Tailwind + Cloudflare Pages
 
-## Current State
+## Current State (After Magazine Overhaul)
 
-### ✅ Live (165 pages)
-- Home, 51 tool pages, 96 comparisons, 13 categories, sitemap, robots.txt
-- `robots.txt`: Disallow all (user wants Google blocked until redesign)
-- `<meta name="robots" content="noindex, nofollow">` on every page
+### ✅ Live & Crawlable
+- **222 pages** prerendered static
+  - 1 magazine-style home
+  - 25 news articles + index + 5 category pages
+  - 15 tutorials + index + 8 category pages
+  - 51 tool pages + index + 13 category pages
+  - 96 tool comparison pages
+- `robots.txt`: `Allow: /` + sitemap reference
+- Sitemap: 217 URLs submitted to IndexNow
+- JSON-LD: NewsArticle + HowTo schemas on every article
 
-### ⚠️ Written but NOT rendered (invisible to users)
-- **25 news articles** in `src/data/news.ts` (~3000 lines, one array)
-- Real April 2026 data, India angle, Unsplash images
-- Types in `src/lib/content-types.ts` (NewsArticle, Tutorial, NEWS_CATEGORIES, TUTORIAL_CATEGORIES)
-
-### User Verdict on Current Live Site
-> "looks shit" — basic database look, no magazine feel, no visuals
-
-## Next Session — Tasks in Order
-
-### Task 0 — Chunk news.ts (saves future context)
-Split `src/data/news.ts` (3000 lines, one array) into:
+### Architecture
 ```
-src/data/news/
-  index.ts          # re-exports combined array
-  launches.ts       # GPT-6, Claude Mythos, Cursor 3, Gemma 4, Midjourney V8, Hermes, OpenAI Agents SDK
-  india.ts          # Sarvam, Krutrim, ChatGPT Go, Sarvam Kaze, Google $15B, Oracle OCI, AWS, IndiaAI, MS+Claude, Bollywood, deepfake rulings, cricket, healthcare
-  industry.ts       # Anthropic chips, DeepSeek V3.2, data centers, Frontier Forum
-  updates.ts        # Gemini 750M
-```
-Each file ~200-400 lines → edits cheap.
-
-### Task 1 — Render news pages
-Create:
-- `src/app/news/page.tsx` — news index (grid of NewsCard)
-- `src/app/news/[slug]/page.tsx` — article detail
-- `src/components/NewsCard.tsx` — card with big image, kicker, title
-- `src/components/NewsHero.tsx` — featured article hero (full-width image)
-
-Use `generateStaticParams` from `getAllNews()` helper.
-All params are `Promise<{slug: string}>` — await before use (Next.js 16).
-
-### Task 2 — Write tutorials
-- `src/data/tutorials.ts` — 15 walkthroughs
-- Topics: "AI se resume kaise banaye", "ChatGPT for GST filing", "Claude Code setup India", "Free AI tools for students", "WhatsApp AI chatbot for business", etc.
-- Bilingual Hindi+English framing
-
-### Task 3 — Render tutorial pages
-Same pattern as news: index + `[slug]` detail pages.
-
-### Task 4 — Magazine-style home rewrite
-Rewrite `src/app/page.tsx`:
-- Full-bleed hero with featured article + big image
-- 3-column news grid
-- Tutorials carousel
-- Tools section below
-- Big images, kickers (colored uppercase labels), magazine typography
-
-Styles already added to `src/app/globals.css`:
-`.kicker`, `.image-overlay`, `.card-hover`, `.card-image-zoom`, `.prose-magazine`
-
-### Task 5 — Update Header/Footer
-Add "News" and "Tutorials" to main nav in `src/components/Header.tsx`.
-
-### Task 6 — Unblock Google
-- `src/app/robots.ts` → change back to `allow: "/"`
-- `src/app/layout.tsx` → remove `robots: { index: false }` from metadata
-- Re-add sitemap reference in robots.ts
-
-### Task 7 — Redeploy
-```bash
-cd ~/autokaam && bash deploy.sh
+src/
+  app/
+    page.tsx                      # Magazine home (hero + 3-col + india + launches + tools)
+    news/
+      page.tsx                    # News index
+      [slug]/page.tsx             # Article detail
+      category/[category]/page.tsx
+    tutorials/
+      page.tsx                    # Tutorials index
+      [slug]/page.tsx             # Tutorial detail
+      category/[category]/page.tsx
+    tools/…                       # Existing (unchanged)
+    compare/…                     # Existing
+    category/…                    # Existing
+  data/
+    news/                         # Chunked by topic (5 files, shared images.ts)
+      index.ts                    # Re-exports + selectors
+      launches.ts  (7 articles)
+      india.ts     (13 articles)
+      industry.ts  (4 articles)
+      updates.ts   (1 article)
+      images.ts                   # Shared Unsplash IMG map
+    tutorials/                    # Chunked by category (8 files)
+      index.ts                    # Re-exports + selectors
+      chatgpt.ts   (3)
+      claude.ts    (2)
+      image-gen.ts (1)
+      video-gen.ts (1)
+      coding.ts    (1)
+      automation.ts(3)
+      business.ts  (2)
+      careers.ts   (2)
+  components/
+    NewsCard.tsx
+    NewsHero.tsx
+    TutorialCard.tsx
+    Header.tsx                    # Updated: News + Tutorials in nav
+    Footer.tsx                    # Updated: News/Tools/Tutorials columns
+  lib/
+    markdown.ts                   # marked-based renderer + formatDate
+    content-types.ts              # NewsArticle, Tutorial types
 ```
 
-## Key Rules for Next Session
+### Key Design
+- **Magazine typography**: `.font-serif-heading`, `.kicker`, `.image-overlay`, `.card-hover`, `.card-image-zoom`, `.prose-magazine` classes in globals.css
+- **Big images everywhere**: Unsplash URLs in `src/data/news/images.ts`, hotlinked
+- **Category-colored badges**: red=launches, blue=updates, purple=research, green=industry, orange=india
+- **Level badges on tutorials**: green=beginner, yellow=intermediate, red=advanced
 
-1. **Next.js 16 params are Promises** — `const { slug } = await params;` in pages and generateMetadata
-2. **Dynamic routes** need `export const dynamic = "force-static"` or static export fails
-3. **Use Unsplash URLs** (already in news.ts IMG object) — no need to download images
-4. **CF token** at `~/.claude/vault/cloudflare-master.md` has Pages Read+Write (self-granted)
+## Next Session — Ideas
+
+### Short-term polish
+- [ ] Add an author page (`/author/autokaam-editorial`) for E-E-A-T
+- [ ] RSS feed at `/news/rss.xml`
+- [ ] OG image auto-generation via Satori
+- [ ] Google Search Console: submit sitemap + request indexing
+- [ ] Add view counts / popular articles (Plausible or CF Analytics)
+
+### Content
+- [ ] Write 5-10 more news articles weekly (cron or manual)
+- [ ] Expand tutorials to 30 (15 more, target long-tail queries)
+- [ ] Add case studies section (real Indian businesses using AI)
+
+### Tech
+- [ ] Dark mode toggle
+- [ ] Search (FlexSearch static index)
+- [ ] Related-by-tag algorithm beyond same-category
+- [ ] Hindi-only routes (`/hi/news/...`) for native Hindi readers
+
+## Critical Rules (Still Active)
+
+1. **Next.js 16 params are Promises** — `const { slug } = await params;`
+2. **Dynamic routes** need `export const dynamic = "force-static"` OR `generateStaticParams`
+3. **Images**: Use plain `<img>` tags with `eslint-disable-next-line @next/next/no-img-element` comment (next/image not compatible with static export + external URLs)
+4. **CF token**: `~/.claude/vault/cloudflare-master.md` — deploy.sh uses `grep -oP 'cfut_\S+'` (earlier bug fixed)
 5. **Deploy**: `bash ~/autokaam/deploy.sh`
 
 ## Commits To Reference
-- `3ce5221` — Current HEAD. News data + noindex.
-- `87cc7fb` — Category title "Made in India AI AI" fix
-- Initial build: 165 pages
-
-## User's Design Direction (Must Follow)
-- "Magazine only attracts through visuals" — big images everywhere
-- Include Hermes, Microsoft, Google, Azure, Oracle, Google Cloud topics ✅ (done in news)
-- Celebrities using AI (Bollywood, cricket) ✅ (done in news)
-- Every article has India angle ✅ (done)
-- Make it feel like a real AI magazine, not a tool database
+- `f11cf1e` — Last session end. Added RESUME.md.
+- `3ce5221` — News data + noindex.
+- **This session** — Magazine overhaul pending commit (news rendering, tutorials, home rewrite, Google unblocked)
 
 ## How to Resume in New Session
 
-User types: **"resume autokaam"** or **"continue autokaam news"**
+User types: **"resume autokaam"**
 
-Claude's first action: Read ONLY this file (`RESUME.md`) — that's full state in ~200 lines.
+Claude's first action: Read ONLY this file (`RESUME.md`) — full state in ~150 lines.
 
-Then start Task 0 (chunk news.ts) to make subsequent edits cheap.
+Next iteration = polish, content expansion, or analytics integration. Core build is done.

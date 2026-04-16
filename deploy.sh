@@ -5,7 +5,7 @@
 set -e
 
 # Load from vault
-TOKEN=$(grep -oP 'Token:\s*\K\S+' ~/.claude/vault/cloudflare-master.md | head -1)
+TOKEN=$(grep -oP 'cfut_\S+' ~/.claude/vault/cloudflare-master.md | head -1)
 ACCOUNT_ID="18c1d9f76c2153a2dde6efa561116b17"
 PROJECT="autokaam"
 

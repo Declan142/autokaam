@@ -14,12 +14,11 @@ export default function Header() {
             </span>
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
-            <Link href="/tools/" className="hover:text-gray-900 transition-colors">All Tools</Link>
-            <Link href="/category/chat/" className="hover:text-gray-900 transition-colors">Chat</Link>
-            <Link href="/category/image/" className="hover:text-gray-900 transition-colors">Image</Link>
-            <Link href="/category/code/" className="hover:text-gray-900 transition-colors">Code</Link>
-            <Link href="/category/video/" className="hover:text-gray-900 transition-colors">Video</Link>
-            <Link href="/category/indian-ai/" className="hover:text-gray-900 transition-colors">Indian AI</Link>
+            <Link href="/news/" className="hover:text-gray-900 transition-colors">News</Link>
+            <Link href="/tutorials/" className="hover:text-gray-900 transition-colors">Tutorials</Link>
+            <Link href="/tools/" className="hover:text-gray-900 transition-colors">Tools</Link>
+            <Link href="/news/category/india/" className="hover:text-gray-900 transition-colors">India AI</Link>
+            <Link href="/compare/chatgpt-vs-claude/" className="hover:text-gray-900 transition-colors">Compare</Link>
           </nav>
         </div>
       </div>

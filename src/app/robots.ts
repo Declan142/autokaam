@@ -7,8 +7,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        disallow: "/",
+        allow: "/",
       },
     ],
+    sitemap: "https://autokaam.com/sitemap.xml",
   };
 }

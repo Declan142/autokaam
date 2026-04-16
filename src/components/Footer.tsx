@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CATEGORIES } from "@/lib/types";
+import { NEWS_CATEGORIES } from "@/lib/content-types";
 
 export default function Footer() {
   return (
@@ -7,14 +8,30 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-3">AutoKaam</h3>
+            <h3 className="font-serif-heading text-lg font-bold text-gray-900 mb-3">
+              Auto<span className="text-orange-500">Kaam</span>
+            </h3>
             <p className="text-sm text-gray-600">
-              India ka #1 AI tool comparison platform. Sahi AI tool dhundho, Hindi mein samjho, Indian pricing mein compare karo.
+              India ka AI magazine + tool guide. Launches, tutorials, aur 50+ tools ka honest comparison with Indian pricing.
             </p>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-3">Categories</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-3">News</h3>
             <ul className="space-y-2">
+              <li><Link href="/news/" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">All News</Link></li>
+              {NEWS_CATEGORIES.map((c) => (
+                <li key={c.slug}>
+                  <Link href={`/news/category/${c.slug}/`} className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 mb-3">Tools</h3>
+            <ul className="space-y-2">
+              <li><Link href="/tools/" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">All Tools</Link></li>
               {CATEGORIES.slice(0, 6).map((c) => (
                 <li key={c.slug}>
                   <Link href={`/category/${c.slug}/`} className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
@@ -25,24 +42,12 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-3">More Categories</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-3">Learn &amp; Compare</h3>
             <ul className="space-y-2">
-              {CATEGORIES.slice(6).map((c) => (
-                <li key={c.slug}>
-                  <Link href={`/category/${c.slug}/`} className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                    {c.icon} {c.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-3">Popular Comparisons</h3>
-            <ul className="space-y-2">
+              <li><Link href="/tutorials/" className="text-sm text-gray-600 hover:text-gray-900">All Tutorials</Link></li>
               <li><Link href="/compare/chatgpt-vs-claude/" className="text-sm text-gray-600 hover:text-gray-900">ChatGPT vs Claude</Link></li>
               <li><Link href="/compare/midjourney-vs-dall-e-3/" className="text-sm text-gray-600 hover:text-gray-900">Midjourney vs DALL-E 3</Link></li>
               <li><Link href="/compare/cursor-vs-github-copilot/" className="text-sm text-gray-600 hover:text-gray-900">Cursor vs Copilot</Link></li>
-              <li><Link href="/compare/runway-ml-vs-pika/" className="text-sm text-gray-600 hover:text-gray-900">Runway vs Pika</Link></li>
               <li><Link href="/compare/suno-ai-vs-udio/" className="text-sm text-gray-600 hover:text-gray-900">Suno vs Udio</Link></li>
             </ul>
           </div>
