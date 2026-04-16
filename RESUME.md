@@ -1,110 +1,175 @@
-# AutoKaam — Resume State (Apr 16 2026, Session 2)
+# AutoKaam — Resume State (Apr 16 2026)
 
-**Live**: https://autokaam.com (CF Pages, **Google unblocked**, 222 pages)
-**Repo**: Declan142/autokaam
-**Stack**: Next.js 16 static + Tailwind + Cloudflare Pages
+**Status**: LIVE at https://autokaam.com — 222 pages, Google-indexable, magazine style, 100% English copy.
 
-## Current State (After Magazine Overhaul)
+---
 
-### ✅ Live & Crawlable
-- **222 pages** prerendered static
-  - 1 magazine-style home
-  - 25 news articles + index + 5 category pages
-  - 15 tutorials + index + 8 category pages
-  - 51 tool pages + index + 13 category pages
-  - 96 tool comparison pages
-- `robots.txt`: `Allow: /` + sitemap reference
-- Sitemap: 217 URLs submitted to IndexNow
-- JSON-LD: NewsArticle + HowTo schemas on every article
+## 🔴 NON-NEGOTIABLE RULES
 
-### Architecture
+1. **English only in published copy.** No Hinglish in article bodies, section headings, hero text, metadata, or SEO blurbs. Indian context (INR, Indian cities, Bollywood, cricket, Sarvam/Krutrim/Bhashini) stays — describe it in English.
+   - OK exceptions: (a) URL slugs already shipped (`ai-se-resume-kaise-banaye-chatgpt`), (b) quoted Hindi queries as examples in SEO tutorials, (c) Hindi names (Sarvam, Krutrim).
+2. **Next.js 16, not 15.** Read `node_modules/next/dist/docs/` before writing any dynamic route — `params` is `Promise<{slug: string}>`, `await` before use.
+3. **Static export** (`output: "export"` in `next.config.ts`). Every dynamic route needs `generateStaticParams` OR `export const dynamic = "force-static"`. Use plain `<img>` tags with eslint-disable (next/image incompatible with external URLs + static export).
+4. **No Docker.** Direct npm / bun installs only.
+5. **Deploy = `bash ~/autokaam/deploy.sh`.** Uses `grep -oP 'cfut_\S+'` to pull token from `~/.claude/vault/cloudflare-master.md`. Auto-submits to IndexNow.
+
+---
+
+## Architecture
+
 ```
-src/
-  app/
-    page.tsx                      # Magazine home (hero + 3-col + india + launches + tools)
-    news/
-      page.tsx                    # News index
-      [slug]/page.tsx             # Article detail
-      category/[category]/page.tsx
-    tutorials/
-      page.tsx                    # Tutorials index
-      [slug]/page.tsx             # Tutorial detail
-      category/[category]/page.tsx
-    tools/…                       # Existing (unchanged)
-    compare/…                     # Existing
-    category/…                    # Existing
-  data/
-    news/                         # Chunked by topic (5 files, shared images.ts)
-      index.ts                    # Re-exports + selectors
-      launches.ts  (7 articles)
-      india.ts     (13 articles)
-      industry.ts  (4 articles)
-      updates.ts   (1 article)
-      images.ts                   # Shared Unsplash IMG map
-    tutorials/                    # Chunked by category (8 files)
-      index.ts                    # Re-exports + selectors
-      chatgpt.ts   (3)
-      claude.ts    (2)
-      image-gen.ts (1)
-      video-gen.ts (1)
-      coding.ts    (1)
-      automation.ts(3)
-      business.ts  (2)
-      careers.ts   (2)
-  components/
-    NewsCard.tsx
-    NewsHero.tsx
-    TutorialCard.tsx
-    Header.tsx                    # Updated: News + Tutorials in nav
-    Footer.tsx                    # Updated: News/Tools/Tutorials columns
-  lib/
-    markdown.ts                   # marked-based renderer + formatDate
-    content-types.ts              # NewsArticle, Tutorial types
+~/autokaam/
+  deploy.sh                              # bash to build + deploy
+  next.config.ts                         # output: "export", trailingSlash, images.unoptimized
+  package.json                           # next 16.2.3, react 19.2.4, marked, tailwind 4
+  AGENTS.md                              # Next.js 16 warning (loaded via CLAUDE.md @AGENTS.md)
+  CLAUDE.md                              # @AGENTS.md
+
+  src/
+    app/
+      page.tsx                           # Magazine home (hero + india + launches + tools)
+      layout.tsx                         # Root, Inter font, OG metadata (English)
+      robots.ts                          # Allow: /  + sitemap
+      sitemap.ts                         # 217 URLs (news + tutorials + tools + compare + categories)
+      globals.css                        # .kicker .font-serif-heading .card-hover .prose-magazine
+      news/
+        page.tsx                         # /news/ index
+        [slug]/page.tsx                  # /news/<slug>/ article detail
+        category/[category]/page.tsx     # /news/category/<c>/ filter (5 categories)
+      tutorials/
+        page.tsx                         # /tutorials/ index
+        [slug]/page.tsx                  # /tutorials/<slug>/ detail
+        category/[category]/page.tsx     # /tutorials/category/<c>/ (8 categories)
+      tools/page.tsx + [slug]/page.tsx   # /tools/ (existing; cleaned of Hinglish)
+      compare/[slugs]/page.tsx           # /compare/a-vs-b/ (existing; cleaned)
+      category/[slug]/page.tsx           # /category/<c>/ (existing; cleaned)
+
+    data/
+      tools.ts                           # 51 tools (descriptionHi / taglineHi kept but NOT rendered)
+      news/
+        index.ts                         # re-exports + selectors (getAllNews, getNewsBySlug, getFeaturedNews, getNewsByCategory)
+        images.ts                        # IMG = { aiChip, coding, robot, … } Unsplash URLs (shared by tutorials)
+        launches.ts (7)                  # GPT-6, Claude Mythos, Cursor 3, Gemma 4, Midjourney V8, Hermes, OpenAI Agents SDK
+        india.ts (13)                    # Sarvam, Krutrim, ChatGPT Go, Sarvam Kaze, Google $15B, Oracle, AWS, IndiaAI, MS+Claude, Bollywood, deepfake, cricket, healthcare
+        industry.ts (4)                  # DeepSeek V3.2, Anthropic chips, data centers, Frontier Forum
+        updates.ts (1)                   # Gemini 750M
+      tutorials/
+        index.ts                         # re-exports + selectors
+        chatgpt.ts (3)                   # resume, GST, Plus-vs-Go
+        claude.ts (2)                    # Claude Code setup, prompt engineering
+        image-gen.ts (1)                 # Midjourney V8 Bollywood posters
+        video-gen.ts (1)                 # YouTube Shorts Runway+Suno
+        coding.ts (1)                    # Cursor vs Copilot 2026
+        automation.ts (3)                # Sarvam Hindi voice, DeepSeek cost cuts, Gemma+Ollama local
+        business.ts (2)                  # WhatsApp chatbot, Hindi-SEO blog workflow
+        careers.ts (2)                   # free tools for students, AI career paths
+
+    components/
+      Header.tsx                         # Nav: News, Tutorials, Tools, India AI, Compare
+      Footer.tsx                         # 4 columns: brand / news / tools / learn+compare
+      NewsCard.tsx                       # big image + kicker + serif title + excerpt
+      NewsHero.tsx                       # full-bleed image + gradient overlay + kicker + title
+      TutorialCard.tsx                   # icon + category + level badge + title
+      ToolCard.tsx                       # existing
+
+    lib/
+      content-types.ts                   # NewsArticle, Tutorial, NEWS_CATEGORIES, TUTORIAL_CATEGORIES
+      markdown.ts                        # marked renderer + formatDate
+      tools.ts                           # existing tool selectors
+      types.ts                           # existing
 ```
 
-### Key Design
-- **Magazine typography**: `.font-serif-heading`, `.kicker`, `.image-overlay`, `.card-hover`, `.card-image-zoom`, `.prose-magazine` classes in globals.css
-- **Big images everywhere**: Unsplash URLs in `src/data/news/images.ts`, hotlinked
-- **Category-colored badges**: red=launches, blue=updates, purple=research, green=industry, orange=india
-- **Level badges on tutorials**: green=beginner, yellow=intermediate, red=advanced
+---
 
-## Next Session — Ideas
+## Design System (globals.css classes)
 
-### Short-term polish
-- [ ] Add an author page (`/author/autokaam-editorial`) for E-E-A-T
-- [ ] RSS feed at `/news/rss.xml`
-- [ ] OG image auto-generation via Satori
-- [ ] Google Search Console: submit sitemap + request indexing
-- [ ] Add view counts / popular articles (Plausible or CF Analytics)
+| Class | Purpose |
+|-------|---------|
+| `.font-serif-heading` | Georgia serif, tight tracking — all h1/h2 magazine style |
+| `.kicker` | Small-caps orange label above headings |
+| `.image-overlay` | Gradient from black bottom to transparent top on hero images |
+| `.card-hover` | Translate-up + shadow on hover (article cards) |
+| `.card-image-zoom` | Smooth image zoom on hover |
+| `.prose-magazine` | Article body: Georgia h2, spaced paragraphs, orange links |
 
-### Content
-- [ ] Write 5-10 more news articles weekly (cron or manual)
-- [ ] Expand tutorials to 30 (15 more, target long-tail queries)
-- [ ] Add case studies section (real Indian businesses using AI)
+Category color mapping (see `NEWS_CATEGORIES`):
+- launches → red-500
+- updates → blue-500
+- research → purple-500
+- industry → green-600
+- india → orange-500
 
-### Tech
-- [ ] Dark mode toggle
-- [ ] Search (FlexSearch static index)
-- [ ] Related-by-tag algorithm beyond same-category
-- [ ] Hindi-only routes (`/hi/news/...`) for native Hindi readers
+Tutorial level badges (`TutorialCard`):
+- beginner → green
+- intermediate → yellow
+- advanced → red
 
-## Critical Rules (Still Active)
+---
 
-1. **Next.js 16 params are Promises** — `const { slug } = await params;`
-2. **Dynamic routes** need `export const dynamic = "force-static"` OR `generateStaticParams`
-3. **Images**: Use plain `<img>` tags with `eslint-disable-next-line @next/next/no-img-element` comment (next/image not compatible with static export + external URLs)
-4. **CF token**: `~/.claude/vault/cloudflare-master.md` — deploy.sh uses `grep -oP 'cfut_\S+'` (earlier bug fixed)
-5. **Deploy**: `bash ~/autokaam/deploy.sh`
+## Commands
 
-## Commits To Reference
-- `f11cf1e` — Last session end. Added RESUME.md.
-- `3ce5221` — News data + noindex.
-- **This session** — Magazine overhaul pending commit (news rendering, tutorials, home rewrite, Google unblocked)
+```bash
+cd ~/autokaam
+npx tsc --noEmit              # type check
+npm run build                  # full build (needs ~10s, outputs ./out/)
+bash deploy.sh                 # build + CF Pages deploy + IndexNow ping
+npm run dev                    # local dev at localhost:3000
+```
 
-## How to Resume in New Session
+Pre-flight before every deploy:
+```bash
+grep -rinE "\b(kaise|karo|chahiye|mein|aur|hain|nahi|bilkul|dhund|samjho)\b" src/app/ src/components/ src/data/tutorials/ | grep -vE "slug|kaise-banaye|\"hi-IN\"|language_code"
+# Should return nothing — if it does, Hinglish has leaked back in
+```
 
-User types: **"resume autokaam"**
+---
 
-Claude's first action: Read ONLY this file (`RESUME.md`) — full state in ~150 lines.
+## Content Inventory
 
-Next iteration = polish, content expansion, or analytics integration. Core build is done.
+### News (25 articles) — see `src/data/news/`
+
+All real April 2026 stories. 1 featured (Sarvam $350M). Every article has India angle. Body is markdown; rendered via `marked` in `[slug]/page.tsx`.
+
+### Tutorials (15) — see `src/data/tutorials/`
+
+3 featured: resume-with-ChatGPT, Claude Code setup, WhatsApp chatbot, Sarvam voice banking. All English copy. All reference tool slugs and cross-link news articles.
+
+### Tools (51) — existing, unchanged
+
+`descriptionHi` and `taglineHi` fields are present but NO LONGER RENDERED on pages. Retained for future bilingual rollout.
+
+---
+
+## Git History (this session)
+
+```
+9b13e05 content: finish English sweep across tool, compare, category, layout
+7e8def4 content: rewrite tutorials and site copy in English (drop Hinglish)
+2ce4e5d feat: magazine overhaul — news + tutorials + Google unblocked
+f11cf1e docs: add RESUME.md for next-session quick context
+3ce5221 feat: 25 real AI news articles with India angle + noindex for staging
+```
+
+---
+
+## Next-Session Ideas (Not Urgent)
+
+- **Analytics**: wire Plausible or CF Web Analytics on `src/app/layout.tsx` (one script tag)
+- **RSS**: `src/app/news/rss.xml/route.ts` static feed
+- **OG images**: `src/app/news/[slug]/opengraph-image.tsx` via Satori (auto-gen from title + image)
+- **Search**: FlexSearch static index + `/search/` page
+- **Author pages**: `/author/autokaam-editorial/` for E-E-A-T
+- **GSC submit**: manual sitemap submission to Google Search Console
+- **Content cadence**: 5-10 news/week (possibly scripted with brain search on recent AI news)
+- **More tutorials** to 30 (long-tail keyword targeting)
+- **Dark mode toggle** via class-based Tailwind
+
+---
+
+## How To Resume
+
+User types **"resume autokaam"** → read ONLY this file. ~150 lines, full state.
+
+Core build is done. Future work = polish, content, analytics.
+
+**First move after reading**: `cd ~/autokaam && git status` to check for WIP, then ask user what to add.
